@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
-import Splash from './screen/Splash';
+import Intro from './screen/Intro';
 
 export default function App() {
   return (
     <View>
-      <Splash />
+      <Intro />
     </View>
   );
 }
