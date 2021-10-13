@@ -11,9 +11,7 @@ import Icon from 'react-native-vector-icons/Feather';
 export default function Intro() {
   return (
     <View>
-      <ImageBackground
-        source={require('../../asset/Image/Bawomataluo.jpg')}
-        resizeMode="cover">
+      <ImageBackground source={require('../../asset/Image/Bawomataluo.jpg')}>
         <View style={styles.wrap}>
           <Title style={styles.txtTitle}>Jelajahi</Title>
           <Subheading style={styles.txtSub}>Mari Mengenal Nias</Subheading>
@@ -35,8 +33,8 @@ export default function Intro() {
 
 const styles = StyleSheet.create({
   wrap: {padding: 20, marginVertical: 50},
-  txtTitle: {fontSize: 35,color:'#ffff'},
-  txtSub: {fontSize: 20,color:'#ffff'},
+  txtTitle: {fontSize: 35, color: '#ffff'},
+  txtSub: {fontSize: 20, color: '#ffff'},
   btn: {
     width: 60,
     height: 60,
