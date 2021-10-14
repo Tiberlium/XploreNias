@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
-import {Headline, TextInput, Button, Paragraph} from 'react-native-paper';
+import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Headline, TextInput, Button} from 'react-native-paper';
 import Logobtn from '../../component/Logobtn';
 export default function Login() {
   return (
@@ -27,13 +27,16 @@ export default function Login() {
       </Button>
       <View style={styles.line} />
       <View style={styles.wrapBtn}>
-        <Logobtn nama="logo-google" />
-        <Logobtn nama="logo-twitter" />
-        <Logobtn nama="logo-facebook" />
+        <Logobtn nama="google" />
+        <Logobtn nama="twitter" />
+        <Logobtn nama="facebook-f"/>
       </View>
-      <Paragraph>
-        Belum terdaftar? 
-      </Paragraph>
+      <View style={styles.wrapUnlog}>
+        <Text style={styles.txtUnlog}>Belum terdaftar?</Text>
+        <Button mode="text" style={styles.txtUnlogBtn}>
+          Daftar
+        </Button>
+      </View>
     </View>
   );
 }
@@ -68,4 +71,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 25,
   },
+  wrapUnlog: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginVertical: 20,
+  },
+  txtUnlog: {fontWeight: '900', fontSize: 15},
+  txtUnlogBtn: {marginTop: -8},
 });
