@@ -1,11 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import Login from './src/screen/Login';
+import Search from './src/component/Search';
+
 
 export default function App() {
   return (
     <View>
-      <Login />
+      <Search/>
     </View>
   );
 }
