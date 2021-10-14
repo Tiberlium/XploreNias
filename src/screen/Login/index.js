@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, Image, StyleSheet, Text} from 'react-native';
 import {Headline, TextInput, Button} from 'react-native-paper';
 import Logobtn from '../../component/Logobtn';
+
 export default function Login() {
   return (
     <View>
@@ -29,7 +30,7 @@ export default function Login() {
       <View style={styles.wrapBtn}>
         <Logobtn nama="google" />
         <Logobtn nama="twitter" />
-        <Logobtn nama="facebook-f"/>
+        <Logobtn nama="facebook-f" />
       </View>
       <View style={styles.wrapUnlog}>
         <Text style={styles.txtUnlog}>Belum terdaftar?</Text>

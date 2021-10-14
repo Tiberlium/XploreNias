@@ -6,7 +6,7 @@ export default function Logobtn({nama}) {
   return (
     <View>
       <TouchableOpacity style={styles.btn}>
-        <Icon name={nama} size={31} color="white" style={styles.logo} />
+        <Icon name={nama} size={30} color="white" style={styles.logo} />
       </TouchableOpacity>
     </View>
   );
@@ -14,10 +14,10 @@ export default function Logobtn({nama}) {
 
 const styles = StyleSheet.create({
   btn: {
-    width: 65,
-    height: 65,
+    width: 60,
+    height: 60,
     backgroundColor: 'blue',
     borderRadius: 33,
   },
-  logo: {marginVertical: 16, marginHorizontal: 18},
+  logo: {marginVertical: 14, marginHorizontal: 16},
 });
