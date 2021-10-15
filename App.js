@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import FullViewBtn from './src/component/FullViewBtn';
+import BookmarkCard from './src/component/BookmarkCard';
 
 
 export default function App() {
   return (
     <View>
-      <FullViewBtn/>
+      <BookmarkCard/>
     </View>
   );
 }
