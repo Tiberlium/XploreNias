@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import Search from './src/component/Search';
+import FullViewBtn from './src/component/FullViewBtn';
 
 
 export default function App() {
   return (
     <View>
-      <Search/>
+      <FullViewBtn/>
     </View>
   );
 }
