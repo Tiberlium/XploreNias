@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import Logoutbtn from './src/component/Logoutbtn';
+import CategoryBtn from './src/component/CategoryBtn';
 
 
 export default function App() {
   return (
     <View>
-      <Logoutbtn/>
+      <CategoryBtn/>
     </View>
   );
 }
