@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import ResultCard from './src/component/ResultCard';
+import Logoutbtn from './src/component/Logoutbtn';
 
 
 export default function App() {
   return (
     <View>
-      <ResultCard/>
+      <Logoutbtn/>
     </View>
   );
 }
