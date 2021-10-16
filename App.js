@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import BookmarkCard from './src/component/BookmarkCard';
+import ResultCard from './src/component/ResultCard';
 
 
 export default function App() {
   return (
     <View>
-      <BookmarkCard/>
+      <ResultCard/>
     </View>
   );
 }
