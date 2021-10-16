@@ -2,7 +2,7 @@ import React from 'react'
 import { View,TouchableOpacity,StyleSheet,Text} from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-export default function Search() {
+export default function SearchBtn() {
   return (
     <View style={styles.wrap}>
       <TouchableOpacity style={styles.btn}>       
