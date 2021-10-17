@@ -8,7 +8,7 @@ export default function CategoryBtn() {
     <View>
       <TouchableOpacity>
         <Card style={styles.btn}>
-          <Icon name="award" size={50} color="red" style={styles.icon}/>
+          <Icon name="award" size={40} color="red" style={styles.icon}/>
         </Card>
       </TouchableOpacity>
     </View>
@@ -17,18 +17,19 @@ export default function CategoryBtn() {
 
 const styles = StyleSheet.create({
   btn: {
-    height:100,
-    width: 100,
+    height:85,
+    width: 85,
     borderWidth:0.5,
     borderRadius: 30,
+    margin:10,
     shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 2,
-},
-shadowOpacity: 0.25,
-shadowRadius: 3.84,
-elevation: 5,
+  shadowOffset: {
+    width: 0,
+    height: 2,
   },
-  icon:{marginTop:18,marginHorizontal:23}
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+  },
+  icon:{marginTop:18,marginHorizontal:22}
 });
