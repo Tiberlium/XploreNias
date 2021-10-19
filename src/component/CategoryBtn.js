@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet,Text} from 'react-native';
 import {Card} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 
