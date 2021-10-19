@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import CategoryBtn from './src/component/CategoryBtn';
+import Test from './src/component/test';
 
 
 export default function App() {
   return (
     <View>
-      <CategoryBtn/>
+      <Test/>
     </View>
   );
 }

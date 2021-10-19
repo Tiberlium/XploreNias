@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "991380823586",
+    "project_id": "xplorenias",
+    "storage_bucket": "xplorenias.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991380823586:android:539b29e1bb9fd0a19cf47b",
+        "android_client_info": {
+          "package_name": "com.xplorenias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcoN2zgdrdm6QlcCf2-QTsuw8-qmLxGWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
