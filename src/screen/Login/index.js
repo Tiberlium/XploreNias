@@ -43,7 +43,7 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-  icon: {marginHorizontal: 90},
+  icon: {marginHorizontal: 110,width:150,height:150,marginVertical:30},
   txtTitle: {
     marginHorizontal: 140,
     padding: 10,

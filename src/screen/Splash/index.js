@@ -13,5 +13,5 @@ export default function Splash() {
 }
 
 const Style = StyleSheet.create({
-  img: {height: 350, width: 350, marginVertical: 200, marginHorizontal: 25},
+  img: {height: 290, width: 250, marginVertical: 200, marginHorizontal: 70},
 });
