@@ -1,12 +1,10 @@
 import React from 'react';
-import {View} from 'react-native';
-import Test from './src/component/test';
-
+import {View,Text} from 'react-native';
 
 export default function App() {
   return (
     <View>
-      <Test/>
+      <Text>Inia adalah halaman awal</Text>
     </View>
   );
 }
