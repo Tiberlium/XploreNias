@@ -1,9 +1,44 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 import {Headline, TextInput, Button} from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import Logobtn from '../../component/Logobtn';
 
+async function onGoogleButtonPress(){
+  const {idToken} = await GoogleSignin.signIn();
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  return auth().signInWithCredential(googleCredential);
+}
+
 export default function Register() {
+
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+
+  GoogleSignin.configure({
+    webClientId:'991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com',
+  });
+
+
+  const submit =async() =>{
+    if(!Email.trim()){
+      alert('silakan isi form dengan lengkap');
+      return false;
+    }
+    await auth().createUserWithEmailAndPassword(Email,Password).then((userCredential)=>{
+      user = userCredential.user;
+      alert("berhasil masuk");
+    }).catch(
+      (error)=>{
+        const errorCode = error.code;
+        alert(errorCode);
+      }
+    )
+  }
+
+
+
   return (
     <View>
       <Image
@@ -16,19 +51,23 @@ export default function Register() {
         mode="outlined"
         placeholder="masukkan email disini"
         style={styles.txtInput}
+        value = {Email}
+        onChangeText = {(value)=>setEmail(value)}
       />
       <TextInput
         label="Password"
         mode="outlined"
         placeholder="masukkan Password disini"
         style={styles.txtInput}
+        value = {Password}
+        onChangeText = {(value)=>setPassword(value)}
       />
-      <Button mode="contained" style={styles.btn}>
+      <Button mode="contained" style={styles.btn} onPress ={submit}>
         Daftar
       </Button>
       <View style={styles.line} />
       <View style={styles.wrapBtn}>
-        <Logobtn nama="google" />
+        <Logobtn nama="google" onPress={()=>alert('tst')} />
         <Logobtn nama="twitter" />
         <Logobtn nama="facebook-f" />
       </View>

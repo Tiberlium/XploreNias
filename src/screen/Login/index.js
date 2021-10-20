@@ -1,9 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 import {Headline, TextInput, Button} from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import Logobtn from '../../component/Logobtn';
 
-export default function Login() {
+export default function Login({}) {
+  const [Error, setError] = useState(false);
+
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+
+  const submit = async () => {
+    if(!Email.trim()){
+      alert('silakan isi form dengan lengkap');
+      setError(true);
+      return false;
+    }
+    await auth()
+    .signInWithEmailAndPassword(Email, Password)
+    .then((userCredential)=>{
+      const user = userCredential.user
+    })
+    .catch( error => {
+      const errorCode = error.code;
+      alert(errorCode);
+      setError(true);
+    });
+  };
+
+
+  GoogleSignin.configure({
+    webClientId:'991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com',
+  });
+
+  async function onGoogleButtonPress(){
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    return auth().signInWithCredential(googleCredential);
+  }
+
   return (
     <View>
       <Image
@@ -16,19 +52,25 @@ export default function Login() {
         mode="outlined"
         placeholder="masukkan email disini"
         style={styles.txtInput}
+        value={Email}
+        onChangeText={value => setEmail(value)}
+        error={Error}
       />
       <TextInput
         label="Password"
         mode="outlined"
         placeholder="masukkan Password disini"
         style={styles.txtInput}
+        value={Password}
+        onChangeText={value => setPassword(value)}
+        error={Error}
       />
-      <Button mode="contained" style={styles.btn}>
+      <Button mode="contained" style={styles.btn} onPress={submit}>
         Masuk
       </Button>
       <View style={styles.line} />
       <View style={styles.wrapBtn}>
-        <Logobtn nama="google" />
+        <Logobtn nama="google" onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
         <Logobtn nama="twitter" />
         <Logobtn nama="facebook-f" />
       </View>
@@ -43,7 +85,7 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-  icon: {marginHorizontal: 110,width:150,height:150,marginVertical:30},
+  icon: {marginHorizontal: 110, width: 150, height: 150, marginVertical: 30},
   txtTitle: {
     marginHorizontal: 140,
     padding: 10,

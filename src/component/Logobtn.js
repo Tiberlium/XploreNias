@@ -2,10 +2,10 @@ import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 
-export default function Logobtn({nama}) {
+export default function Logobtn({nama,onPress}) {
   return (
     <View>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={onPress}>
         <Icon name={nama} size={30} color="white" style={styles.logo} />
       </TouchableOpacity>
     </View>
