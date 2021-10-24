@@ -1,10 +1,19 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {View,StyleSheet} from 'react-native';
+import Profile from '../../component/Profile';
+import Reminder from '../../component/Reminder';
 
 export default function Dashboard() {
-    return (
-        <View>
-            <Text>hallo Dashboard</Text>
-        </View>
-    )
+  return (
+    <View>
+      <View style = {styles.wrap}>
+        <Profile />
+        <Reminder />
+      </View>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+    wrap:{display:'flex',flexDirection:'row',justifyContent:'space-around'}
+})
