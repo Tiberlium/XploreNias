@@ -5,7 +5,8 @@ import Register from '../screen/Register';
 import Search from '../screen/Search';
 import Splash from '../screen/Splash';
 import Reminder from '../screen/Reminder';
+import Dashboard from './Dashboard';
+import Detail from './Detail';
 
 
-
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail};
