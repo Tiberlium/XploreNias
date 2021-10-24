@@ -29,7 +29,6 @@ export default function Login({}) {
     });
   };
 
-
   GoogleSignin.configure({
     webClientId:'991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com',
   });
@@ -68,7 +67,7 @@ export default function Login({}) {
       <Button mode="contained" style={styles.btn} onPress={submit}>
         Masuk
       </Button>
-      <View style={styles.line} />
+      <Button mode="text" color="red" style={styles.forget}>Lupa Password?</Button>
       <View style={styles.wrapBtn}>
         <Logobtn nama="google" onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
         <Logobtn nama="twitter" />
@@ -97,16 +96,10 @@ const styles = StyleSheet.create({
     width: 150,
     padding: 5,
     borderRadius: 25,
-    marginHorizontal: 110,
+    marginHorizontal: 117,
     marginVertical: 15,
   },
-  line: {
-    borderBottomColor: 'black',
-    borderBottomWidth: 0.9,
-    width: 300,
-    marginHorizontal: 40,
-    padding: 10,
-  },
+  forget:{marginRight:10},
   wrapBtn: {
     display: 'flex',
     flexWrap: 'wrap',
