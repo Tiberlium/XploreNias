@@ -7,6 +7,7 @@ import Splash from '../screen/Splash';
 import Reminder from '../screen/Reminder';
 import Dashboard from './Dashboard';
 import Detail from './Detail';
+import User from './User';
 
 
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User};

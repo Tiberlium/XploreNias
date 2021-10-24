@@ -14,6 +14,7 @@ export default function Dashboard() {
   );
 }
 
+
 const styles = StyleSheet.create({
     wrap:{display:'flex',flexDirection:'row',justifyContent:'space-around'}
 })

@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Profile() {
+export default function User() {
     return (
         <View>
-            <Text>ini halaman bookmark</Text>
+            <Text>ini halaman Profile</Text>
         </View>
     )
 }
