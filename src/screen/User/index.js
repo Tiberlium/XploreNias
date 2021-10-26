@@ -6,8 +6,9 @@ import Logoutbtn from '../../component/Logoutbtn';
 
 export default function User() {
   const user = firebase.auth().currentUser;
-  return (
-    <View>
+
+  const Anon = () => {
+    return (
       <View style={styles.wrap}>
         <Image
           source={{uri: 'https://placeimg.com/640/480/any'}}
@@ -15,10 +16,30 @@ export default function User() {
         />
         <Text style={styles.txt}>User</Text>
       </View>
-      <View>
-          <Button mode="text" color="black" icon="account">Personal Info</Button>
+    );
+  };
+
+  const Exist = () => {
+    return (
+      <View style={styles.wrap}>
+        <Image
+          source={{uri: user.photoURL}}
+          style={styles.img}
+        />
+        <Text style={styles.txt}>{user.displayName}</Text>
       </View>
-      <Logoutbtn/>
+    );
+  };
+
+  return (
+    <View>
+      {user ? Exist() : Anon()}
+      <View>
+        <Button mode="text" color="black" icon="account">
+          Personal Info
+        </Button>
+      </View>
+      <Logoutbtn />
     </View>
   );
 }

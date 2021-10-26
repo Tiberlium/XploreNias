@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: 'red',
         borderRadius: 25,
-        marginHorizontal: 120,
+        marginHorizontal: 125,
         marginVertical: 20,},
     icon:{marginTop:7,marginHorizontal:60}
 })

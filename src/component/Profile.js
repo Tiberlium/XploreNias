@@ -4,19 +4,22 @@ import {firebase} from '@react-native-firebase/auth';
 
 export default function Profile() {
   const user = firebase.auth().currentUser;
-  if (user != null) {
+
+  const Exist = () =>{
     return (
-        <View style={styles.wrap}>
-          <Image
-            source={{
-              uri: user.photoURL,
-            }}
-            style={styles.img}
-          />
-          <Text style={styles.txt}>{user.displayName}</Text>
-        </View>
-    );
-  } else {
+      <View style={styles.wrap}>
+        <Image
+          source={{
+            uri: user.photoURL,
+          }}
+          style={styles.img}
+        />
+        <Text style={styles.txt}>{user.displayName}</Text>
+      </View>
+  )
+  }
+
+  const None = () =>{
     return (
       <View style={styles.wrap}>
         <Image
@@ -29,6 +32,12 @@ export default function Profile() {
       </View>
     );
   }
+
+  return(
+    <View>
+      {user ? Exist() : None()}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
