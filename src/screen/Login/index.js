@@ -52,7 +52,7 @@ export default function Login({}) {
         placeholder="masukkan email disini"
         style={styles.txtInput}
         value={Email}
-        onChangeText={value => setEmail(value)}
+        onChangeText={setEmail}
         error={Error}
       />
       <TextInput
@@ -61,7 +61,7 @@ export default function Login({}) {
         placeholder="masukkan Password disini"
         style={styles.txtInput}
         value={Password}
-        onChangeText={value => setPassword(value)}
+        onChangeText={setPassword}
         error={Error}
       />
       <Button mode="contained" style={styles.btn} onPress={submit}>

@@ -50,7 +50,7 @@ export default function Register() {
         placeholder="masukkan email disini"
         style={styles.txtInput}
         value={Email}
-        onChangeText={value => setEmail(value)}
+        onChangeText={setEmail}
       />
       <TextInput
         label="Password"
@@ -58,7 +58,7 @@ export default function Register() {
         placeholder="masukkan Password disini"
         style={styles.txtInput}
         value={Password}
-        onChangeText={value => setPassword(value)}
+        onChangeText={setPassword}
       />
       <Button mode="contained" style={styles.btn} onPress={submit}>
         Daftar
