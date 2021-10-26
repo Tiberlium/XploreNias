@@ -8,6 +8,6 @@ import Reminder from '../screen/Reminder';
 import Dashboard from './Dashboard';
 import Detail from './Detail';
 import User from './User';
+import Passrecovery from './Passrecovery';
 
-
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery};
