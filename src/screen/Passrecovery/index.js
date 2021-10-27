@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import Auth from '@react-native-firebase/auth';
 
@@ -22,6 +23,7 @@ export default function Passrecovery() {
 
   return (
     <View style={styles.wrap}>
+      <Image source={require('../../asset/Image/Email.png')} style={styles.img}/>
       <Text style={styles.txt}>Masukkan Email anda</Text>
       <TextInput
         placeholder="Email"
@@ -37,7 +39,8 @@ export default function Passrecovery() {
 }
 
 const styles = StyleSheet.create({
-  wrap: {marginVertical: 150},
+  wrap: {marginVertical: 100},
+  img:{height:200,width:250,marginHorizontal:75},
   txt: {fontWeight: 'bold', fontSize: 20, padding: 10},
   txtInput: {
     borderColor: 'black',
