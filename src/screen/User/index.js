@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 import {firebase} from '@react-native-firebase/auth';
-import Logoutbtn from '../../component/Logoutbtn';
+import Logoutbtn from '../../Component/Logoutbtn';
 
 export default function User() {
   const user = firebase.auth().currentUser;

@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 
+
+TODO://SELESAIKAN INISIALISASI DATA DARI FIREBASE
+
 export default function Splash() {
   return (
     <View>

@@ -9,20 +9,21 @@ import {
   Dashboard,
   User,
   Passrecovery,
-} from './src/screen';
-import Profile from './src/component/Profile';
-const tab = createNativeStackNavigator();
+} from './src/Screen';
+const Stack = createNativeStackNavigator();
+
+TODO://BUAT NAVIGASI
 
 export default function App() {
   return (
-    <NavigationContainer style={{backgroundColor: 'white'}}>
-      <tab.Navigator>
-        <tab.Screen
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
           name="Splash"
-          component={Passrecovery}
+          component={Splash}
           options={{headerShown: false}}
         />
-      </tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

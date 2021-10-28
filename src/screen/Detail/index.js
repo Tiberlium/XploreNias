@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 import {Headline,Subheading,Paragraph} from 'react-native-paper'
-import BackButton from '../../component/BackButton'
+import BackButton from '../../Component/BackButton'
 
 export default function Detail() {
   return (

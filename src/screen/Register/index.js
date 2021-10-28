@@ -3,7 +3,7 @@ import {View, Image, StyleSheet, Text} from 'react-native';
 import {Headline, TextInput, Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import Logobtn from '../../component/Logobtn';
+import Logobtn from '../../Component/Logobtn';
 
 async function onGoogleButtonPress() {
   const {idToken} = await GoogleSignin.signIn();

@@ -1,8 +1,10 @@
 import React from 'react';
 import {View,StyleSheet} from 'react-native';
-import Profile from '../../component/Profile';
-import Reminder from '../../component/Reminder';
+import Profile from '../../Component/Profile';
+import Reminder from '../../Component/Reminder';
 
+
+TODO://SELESAIKAN DASHBOARD TAMBAHKAN FITUR DETAIL DAN MAPSNYA
 export default function Dashboard() {
   return (
     <View>
