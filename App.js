@@ -28,7 +28,7 @@ export default function App() {
   return (
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Splash"
           component={Splash}
           options={{headerShown: false}}
@@ -47,17 +47,17 @@ export default function App() {
           name="Register"
           component={Register}
           options={{headerShown: false}}
-        /> */}
+        />
          <Stack.Screen
           name="Passrecovery"
           component={Passrecovery}
           options={{headerShown: false}}
         />
-         {/* <Stack.Screen
+         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
           options={{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

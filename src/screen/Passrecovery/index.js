@@ -9,13 +9,16 @@ import {
 } from 'react-native';
 import Auth from '@react-native-firebase/auth';
 
-export default function Passrecovery() {
+export default function Passrecovery({navigation}) {
   const [Email, setEmail] = useState('');
 
   const Forget = () => {
     Auth()
       .sendPasswordResetEmail(Email)
-      .then(() => console.log('email pass send'))
+      .then(() => {
+        alert("Silahkan Cek inbox Email anda");
+        navigation.navigate('Login');
+      })
       .catch(e => {
         alert('Email Tidak ditemukan');
       });
