@@ -11,7 +11,7 @@ async function onGoogleButtonPress() {
   return auth().signInWithCredential(googleCredential);
 }
 
-export default function Register() {
+export default function Register({navigation}) {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
 
@@ -37,10 +37,11 @@ export default function Register() {
       });
   };
 
+
   return (
     <View>
       <Image
-        source={require('../../asset/Image/Logo.png')}
+        source={require('../../Asset/Image/Logo.png')}
         style={styles.icon}
       />
       <Headline style={styles.txtTitle}>Daftar</Headline>
@@ -69,7 +70,7 @@ export default function Register() {
           nama="google"
           onPress={() =>
             onGoogleButtonPress().then(() =>
-              console.log('Signed in with Google!'),
+              navigation.navigate('Dashboard')
             )
           }
         />

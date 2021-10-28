@@ -23,7 +23,7 @@ export default function Passrecovery() {
 
   return (
     <View style={styles.wrap}>
-      <Image source={require('../../asset/Image/Email.png')} style={styles.img}/>
+      <Image source={require('../../Asset/Image/Email.png')} style={styles.img}/>
       <Text style={styles.txt}>Masukkan Email anda</Text>
       <TextInput
         placeholder="Email"

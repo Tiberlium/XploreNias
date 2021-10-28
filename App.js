@@ -9,10 +9,11 @@ import {
   Dashboard,
   User,
   Passrecovery,
+  Intro
 } from './src/Screen';
 const Stack = createNativeStackNavigator();
 
-TODO://BUAT NAVIGASI
+
 
 export default function App() {
   return (
@@ -21,6 +22,26 @@ export default function App() {
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="Intro"
+          component={Intro}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false}}
+        />
+          <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

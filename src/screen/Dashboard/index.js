@@ -4,7 +4,6 @@ import Profile from '../../Component/Profile';
 import Reminder from '../../Component/Reminder';
 
 
-TODO://SELESAIKAN DASHBOARD TAMBAHKAN FITUR DETAIL DAN MAPSNYA
 export default function Dashboard() {
   return (
     <View>

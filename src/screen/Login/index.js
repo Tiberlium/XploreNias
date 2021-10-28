@@ -2,38 +2,40 @@ import React, {useState} from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 import {Headline, TextInput, Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Logobtn from '../../Component/Logobtn';
 
-export default function Login({}) {
+export default function Login({navigation}) {
   const [Error, setError] = useState(false);
 
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
 
   const submit = async () => {
-    if(!Email.trim()){
+    if (!Email.trim()) {
       alert('silakan isi form dengan lengkap');
       setError(true);
       return false;
     }
     await auth()
-    .signInWithEmailAndPassword(Email, Password)
-    .then((userCredential)=>{
-      const user = userCredential.user
-    })
-    .catch( error => {
-      const errorCode = error.code;
-      alert(errorCode);
-      setError(true);
-    });
+      .signInWithEmailAndPassword(Email, Password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        navigation.replace('Dashboard');
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        alert("Anda Belum Terdaftar");
+        setError(true);
+      });
   };
 
   GoogleSignin.configure({
-    webClientId:'991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com',
+    webClientId:
+      '991380823586-bg4tnp3s6q0kp14pvi9q4pk8jb66bn2d.apps.googleusercontent.com',
   });
 
-  async function onGoogleButtonPress(){
+  async function onGoogleButtonPress() {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     return auth().signInWithCredential(googleCredential);
@@ -42,7 +44,7 @@ export default function Login({}) {
   return (
     <View>
       <Image
-        source={require('../../asset/Image/Logo.png')}
+        source={require('../../Asset/Image/Logo.png')}
         style={styles.icon}
       />
       <Headline style={styles.txtTitle}>Masuk</Headline>
@@ -67,15 +69,22 @@ export default function Login({}) {
       <Button mode="contained" style={styles.btn} onPress={submit}>
         Masuk
       </Button>
-      <Button mode="text" color="red" style={styles.forget}>Lupa Password?</Button>
+      <Button mode="text" color="red" style={styles.forget}>
+        Lupa Password?
+      </Button>
       <View style={styles.wrapBtn}>
-        <Logobtn nama="google" onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
+        <Logobtn
+          nama="google"
+          onPress={() =>
+            onGoogleButtonPress().then(() => navigation.navigate('Dashboard'))
+          }
+        />
         <Logobtn nama="twitter" />
         <Logobtn nama="facebook-f" />
       </View>
       <View style={styles.wrapUnlog}>
         <Text style={styles.txtUnlog}>Belum terdaftar?</Text>
-        <Button mode="text" style={styles.txtUnlogBtn}>
+        <Button mode="text" style={styles.txtUnlogBtn} onPress={()=>navigation.navigate('Register')}>
           Daftar
         </Button>
       </View>
@@ -99,7 +108,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 117,
     marginVertical: 15,
   },
-  forget:{marginRight:10},
+  forget: {marginRight: 10},
   wrapBtn: {
     display: 'flex',
     flexWrap: 'wrap',
