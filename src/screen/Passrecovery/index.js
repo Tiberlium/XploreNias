@@ -22,7 +22,7 @@ export default function Passrecovery() {
   };
 
   return (
-    <View style={styles.wrap}>
+    <View>
       <Image source={require('../../Asset/Image/Email.png')} style={styles.img}/>
       <Text style={styles.txt}>Masukkan Email anda</Text>
       <TextInput
@@ -39,15 +39,14 @@ export default function Passrecovery() {
 }
 
 const styles = StyleSheet.create({
-  wrap: {marginVertical: 100},
   img:{height:200,width:250,marginHorizontal:75},
-  txt: {fontWeight: 'bold', fontSize: 20, padding: 10},
+  txt: {fontWeight: 'bold', fontSize: 20, padding: 10,color:'black'},
   txtInput: {
     borderColor: 'black',
     borderWidth: 1,
     width: 350,
     borderRadius: 10,
-    marginHorizontal: 20,
+    margin: 20,
     height: 60,
   },
   btn: {
