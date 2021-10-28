@@ -78,8 +78,8 @@ export default function Register({navigation}) {
         <Logobtn nama="facebook-f" />
       </View>
       <View style={styles.wrapUnlog}>
-        <Text style={styles.txtUnlog}>Belum terdaftar?</Text>
-        <Button mode="text" style={styles.txtUnlogBtn}>
+        <Text style={styles.txtUnlog}>Sudah terdaftar?</Text>
+        <Button mode="text" style={styles.txtUnlogBtn} onPress={()=>navigation.navigate('Login')}>
           Masuk
         </Button>
       </View>

@@ -40,6 +40,11 @@ export default function App() {
           options={{headerShown: false}}
         />
          <Stack.Screen
+          name="Passrecovery"
+          component={Passrecovery}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
           options={{headerShown: false}}

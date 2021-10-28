@@ -69,7 +69,7 @@ export default function Login({navigation}) {
       <Button mode="contained" style={styles.btn} onPress={submit}>
         Masuk
       </Button>
-      <Button mode="text" color="red" style={styles.forget}>
+      <Button mode="text" color="red" style={styles.forget} onPress={()=>navigation.navigate('Passrecovery')}>
         Lupa Password?
       </Button>
       <View style={styles.wrapBtn}>
