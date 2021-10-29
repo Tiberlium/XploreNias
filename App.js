@@ -11,6 +11,7 @@ import {
   Passrecovery,
   Intro
 } from './src/Screen';
+import Navigator from './src/Navigator';
 
 
 
@@ -54,8 +55,8 @@ export default function App() {
           options={{headerShown: false}}
         />
          <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
+          name="Navigator"
+          component={Navigator}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

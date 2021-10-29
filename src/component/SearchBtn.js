@@ -15,7 +15,7 @@ export default function SearchBtn() {
 
 
 const styles = StyleSheet.create({
-  wrap:{padding:10},
+  wrap:{padding:10,marginLeft:10},
   btn:{borderWidth:1,borderColor:'black',height:50,width:270,padding:10,borderRadius:25},
   txt:{marginTop:-23,marginLeft:30,color:'black'},
 })

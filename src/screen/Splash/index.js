@@ -25,7 +25,7 @@ export default function Splash({navigation}) {
   }
   else{
     setTimeout(()=>{
-      navigation.replace('Dashboard');
+      navigation.replace('Navigator');
     },2000)
   }
 
