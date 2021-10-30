@@ -7,9 +7,9 @@ import {
   Register,
   Passrecovery,
   Intro,
-  Search
 } from './src/Screen';
 import Navigator from './src/Navigator';
+
 
 
 
@@ -29,10 +29,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={Search}
+          component={Splash}
           options={{headerShown: false}}
         />
-         {/* <Stack.Screen
+         <Stack.Screen
           name="Intro"
           component={Intro}
           options={{headerShown: false}}
@@ -56,7 +56,7 @@ export default function App() {
           name="Navigator"
           component={Navigator}
           options={{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
