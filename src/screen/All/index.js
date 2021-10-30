@@ -1,16 +1,15 @@
 import React from 'react'
 import { View, Text,StyleSheet } from 'react-native'
 
-
-export default function Search() {
+export default function All() {
     return (
         <View>
-            <Text style={Styles.txt}>Pencarian</Text>
+            <Text style={styles.txt}>Semua Tempat</Text>
         </View>
     )
 }
 
 
-const Styles = StyleSheet.create({
+const styles= StyleSheet.create({
     txt:{fontWeight:'bold',fontSize:30,color:'black',padding:30}
 })

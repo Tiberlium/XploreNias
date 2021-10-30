@@ -6,7 +6,7 @@ export default function FullViewBtn() {
   return (
     <View>
       <TouchableOpacity style={styles.btn}>
-        <Icon name="chevron-right" size={40} style={styles.icon} />
+        <Icon name="chevron-right" size={40} style={styles.icon} color="blue" />
       </TouchableOpacity>
     </View>
   );
@@ -15,10 +15,14 @@ export default function FullViewBtn() {
 const styles = StyleSheet.create({
   btn: {
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 0.5,
     width: 50,
     height: 50,
     borderRadius: 25,
+    backgroundColor:'white',
+    elevation:5,
+    marginVertical:90,
+    marginHorizontal:20
   },
   icon: {marginTop:2,marginLeft:6},
 });

@@ -5,11 +5,9 @@ import {
   Splash,
   Login,
   Register,
-  Detail,
-  Dashboard,
-  User,
   Passrecovery,
-  Intro
+  Intro,
+  Search
 } from './src/Screen';
 import Navigator from './src/Navigator';
 
@@ -31,10 +29,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={Splash}
+          component={Search}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+         {/* <Stack.Screen
           name="Intro"
           component={Intro}
           options={{headerShown: false}}
@@ -58,7 +56,7 @@ export default function App() {
           name="Navigator"
           component={Navigator}
           options={{headerShown: false}}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

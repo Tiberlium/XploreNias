@@ -9,5 +9,6 @@ import Dashboard from './Dashboard';
 import Detail from './Detail';
 import User from './User';
 import Passrecovery from './Passrecovery';
+import All from './All';
 
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery,All};
