@@ -42,6 +42,6 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   wrap: {flex: 1, flexDirection: 'row', flexWrap: 'wrap'},
-  img: {height: 70, width: 70, borderRadius: 25, margin: 20},
-  txt: {fontWeight: 'bold', fontSize: 20, marginVertical: 40, color: 'black'},
+  img: {height: 50, width: 50, borderRadius: 20, marginTop: 20,marginLeft:20,marginRight:10},
+  txt: {fontWeight: 'bold', fontSize: 15, marginVertical: 35, color: 'black'},
 });

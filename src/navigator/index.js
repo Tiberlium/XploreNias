@@ -50,7 +50,7 @@ export default function Navigator() {
 }
 
 const style = {
-  bottom: 25,
+  bottom: 10,
   marginHorizontal: 20,
   height: 60,
   borderRadius: 20,
