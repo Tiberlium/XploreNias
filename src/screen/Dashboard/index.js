@@ -70,8 +70,8 @@ export default function Dashboard() {
         <Profile />
         <Reminder />
       </View>
-      <Text style={{fontSize:30,marginLeft:20,fontWeight:'bold',color:'black',marginTop:10}}>Jelajahi</Text>
-      <Text style={{fontSize:30,marginLeft:20,fontWeight:'bold',color:'black',marginTop:10}}>Keindahan Nias</Text>
+      <Text style={styles.txtDiscovery}>Jelajahi</Text>
+      <Text style={styles.txtDiscovery}>Keindahan Nias</Text>
       <SearchBtn />
       <Text style={styles.txtCategory}>Category</Text>
       <Category />
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     flexWrap:'wrap',
     justifyContent: 'space-between',
   },
+  txtDiscovery:{fontSize:30,marginLeft:20,fontWeight:'bold',color:'black',marginTop:10},
   txtCategory: {
     fontSize: 15,
     color: 'black',
