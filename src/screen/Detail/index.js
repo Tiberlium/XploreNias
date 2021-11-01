@@ -1,40 +1,42 @@
 import {useNavigation} from '@react-navigation/core';
-import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Image, StyleSheet, ScrollView} from 'react-native';
 import {Headline, Subheading, Paragraph} from 'react-native-paper';
 import BackButton from '../../Component/BackButton';
 import MapButton from '../../Component/MapButton';
+import firestore from '@react-native-firebase/firestore';
 
 export default function Detail({route}) {
   const Nav = useNavigation();
   const itemId = route.params.unique;
+  const [Data, setData] = useState({});
+
+  const getDocs = async () => {
+    await firestore()
+      .collection('Wisata')
+      .doc(itemId)
+      .get()
+      .then(doc => {
+        setData(doc.data());
+      });
+  };
+
+  useEffect(() => {
+    getDocs();
+  }, []);
+
   return (
     <View>
-      <Image
-        source={{uri: 'https://placeimg.com/300/400/any'}}
-        style={styles.img}
-      />
+      <Image source={{uri: Data.Gambar}} style={styles.img} />
       <BackButton onPress={() => Nav.goBack()} />
-      <View style={styles.wrap}>
-        <ScrollView>
-          <Headline style={styles.txt}>Lorem</Headline>
-          <Subheading style={styles.txt}>Hallo paratrooper,bangsat</Subheading>
-          <Paragraph style={styles.txt}>
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget
-            augue at neque accumsan tempor eu sed augue. Nullam ullamcorper
-            hendrerit eleifend. Morbi non ante at felis viverra rutrum sit amet
-            eget mauris. In tincidunt nibh non neque pellentesque ultricies.
-            Fusce eu nisi eros. Mauris posuere convallis velit, faucibus
-            imperdiet augue rutrum porttitor.
-          </Paragraph>
-        </ScrollView>
-      </View>
-      <MapButton/>
+        <View style={styles.wrap}>
+          <Headline style={styles.txt}>{Data.Nama}</Headline>
+          <Subheading style={styles.txt}>
+            {Data.Kecamatan},{Data.Kabupaten}
+          </Subheading>
+          <Paragraph style={styles.txt}>{Data.Deskripsi}</Paragraph>
+        </View>
+      <MapButton />
     </View>
   );
 }

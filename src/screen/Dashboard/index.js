@@ -67,9 +67,9 @@ function Category() {
         flexDirection: 'row',
         justifyContent: 'space-around',
       }}>
-      <CategoryBtn name="calendar" />
-      <CategoryBtn name="pizza" />
-      <CategoryBtn name="basket" />
+      <CategoryBtn name="calendar" title="Event"/>
+      <CategoryBtn name="pizza" title="Makanan" />
+      <CategoryBtn name="basket" title="Suvenir"/>
     </View>
   );
 }
@@ -84,7 +84,7 @@ export default function Dashboard() {
       <Text style={styles.txtDiscovery}>Jelajahi</Text>
       <Text style={styles.txtDiscovery}>Keindahan Nias</Text>
       <SearchBtn />
-      <Text style={styles.txtCategory}>Category</Text>
+      <Text style={styles.txtCategory}>Lainnya</Text>
       <Category />
       <Text style={styles.txtWisata}>Tempat Wisata</Text>
       <Wisata />
