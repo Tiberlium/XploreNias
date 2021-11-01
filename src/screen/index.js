@@ -10,5 +10,6 @@ import Detail from './Detail';
 import User from './User';
 import Passrecovery from './Passrecovery';
 import All from './All';
+import Map from './Map';
 
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery,All};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery,All,Map};
