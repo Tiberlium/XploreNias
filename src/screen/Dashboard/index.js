@@ -7,8 +7,10 @@ import ThumbCard from '../../Component/ThumbCard';
 import FullViewBtn from '../../Component/FullViewBtn';
 import CategoryBtn from '../../Component/CategoryBtn';
 import firestore from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/core';
 
-function Wisata({navigation}) {
+function Wisata() {
+  const navigation = useNavigation();
   const [Data, setData] = useState([]);
   const isMounted = useRef(false);
 
@@ -46,6 +48,7 @@ function Wisata({navigation}) {
                 gambar={x.dat.Gambar}
                 kecamatan={x.dat.Kecamatan}
                 kabupaten={x.dat.Kabupaten}
+                onPress={()=>navigation.push('Detail',{unique:x.id})}
               />
             </View>
           );

@@ -2,11 +2,12 @@ import React from 'react';
 import {NavigationContainer,DefaultTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
-  Splash,
   Login,
   Register,
   Passrecovery,
   Intro,
+  Detail,
+  Splash
 } from './src/Screen';
 import Navigator from './src/Navigator';
 
@@ -50,6 +51,11 @@ export default function App() {
          <Stack.Screen
           name="Passrecovery"
           component={Passrecovery}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="Detail"
+          component={Detail}
           options={{headerShown: false}}
         />
          <Stack.Screen
