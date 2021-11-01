@@ -1,11 +1,13 @@
 import React from 'react'
 import { View,TouchableOpacity,StyleSheet,Text} from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import { useNavigation } from '@react-navigation/core'
 
 export default function SearchBtn() {
+  const navigation = useNavigation();
   return (
     <View style={styles.wrap}>
-      <TouchableOpacity style={styles.btn}>       
+      <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Search')}>       
           <Icon name="search" size={25} color="blue"/>
           <Text style={styles.txt}>Search</Text>
       </TouchableOpacity>
