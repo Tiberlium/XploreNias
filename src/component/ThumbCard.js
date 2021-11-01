@@ -3,9 +3,9 @@ import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {Headline, Subheading} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 
-export default function ThumbCard({gambar,nama,kecamatan,kabupaten}) {
+export default function ThumbCard({gambar,nama,kecamatan,kabupaten,onPress}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <Image
         source={{uri:gambar}}
         style={styles.img}

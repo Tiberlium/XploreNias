@@ -1,9 +1,33 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Bookmark, Dashboard, User} from '../Screen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Bookmark, Dashboard, User,Search, All} from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const Main = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="All"
+        component={All}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
 
 export default function Navigator() {
   return (
@@ -13,8 +37,8 @@ export default function Navigator() {
         tabBarStyle: style,
       }}>
       <Tab.Screen
-        name="Dashboard"
-        component={Dashboard}
+        name="Main"
+        component={Main}
         options={{
           headerShown: false,
           tabBarIcon: ({focused, color}) => {
