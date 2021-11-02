@@ -1,16 +1,16 @@
+
 import React from 'react';
 import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {Headline, Subheading, IconButton} from 'react-native-paper';
+import {Headline, Subheading,} from 'react-native-paper';
 
-export default function FullCard({gambar,nama,kecamatan,kabupaten}) {
+export default function FullCard({gambar,nama,kecamatan,kabupaten,onPress}) {
   return (
-    <View style={{marginTop:20}}>
-      <TouchableOpacity>
+    <View style={{marginTop:10}}>
+      <TouchableOpacity onPress={onPress}>
         <Image
           source={{uri:gambar}}
           style={styles.img}
         />
-        <IconButton icon="bookmark" size={30} style={styles.btn} color="white" />
         <View style={styles.wrap}>
           <Headline style={styles.txt}>{nama}</Headline>
           <Subheading style={styles.txt}>{kecamatan},{kabupaten}</Subheading>
@@ -21,8 +21,7 @@ export default function FullCard({gambar,nama,kecamatan,kabupaten}) {
 }
 
 const styles = StyleSheet.create({
-  btn: {alignSelf: 'flex-end',marginRight:30,marginTop:20},
-  img: {width: 350, height: 175, borderRadius: 25, marginHorizontal: 22,position:'absolute'},
-  wrap: {marginLeft: 40,marginTop:30},
+  img: {width: 350, height: 175, borderRadius: 25, marginHorizontal: 22,},
+  wrap:{marginLeft:40,position:'absolute',marginTop:80},
   txt: {color: 'white'},
 });

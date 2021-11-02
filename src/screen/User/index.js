@@ -22,11 +22,18 @@ export default function User() {
   const Exist = () => {
     return (
       <View style={styles.wrap}>
-        <Image
-          source={{uri: user.photoURL}}
-          style={styles.img}
-        />
+        <Image source={{uri: user.photoURL}} style={styles.img} />
         <Text style={styles.txt}>{user.displayName}</Text>
+      </View>
+    );
+  };
+
+  const List = ({title,icon}) => {
+    return (
+      <View style={styles.listcrd}>
+        <Button mode="text" color="black" icon={icon}>
+          {title}
+        </Button>
       </View>
     );
   };
@@ -35,9 +42,8 @@ export default function User() {
     <View>
       {user ? Exist() : Anon()}
       <View>
-        <Button mode="text" color="black" icon="account">
-          Personal Info
-        </Button>
+        <List title="Informasi Akun" icon="account"/>
+        <List title="Tentang" icon="information"/>
       </View>
       <Logoutbtn />
     </View>
@@ -46,7 +52,7 @@ export default function User() {
 
 const styles = StyleSheet.create({
   wrap: {marginVertical: 50},
-  img: {height: 120, width: 120, borderRadius: 60, alignSelf: 'center'},
+  img: {height: 100, width: 100, borderRadius: 30, alignSelf: 'center'},
   txt: {
     fontSize: 20,
     color: 'black',
@@ -54,4 +60,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
   },
+  listcrd:{borderWidth:0.5,borderColor:'black',padding:20,width:350,alignSelf:'center',borderRadius:10,backgroundColor:'#BFBBBB',marginVertical:10},
 });

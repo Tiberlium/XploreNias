@@ -16,7 +16,7 @@ function Wisata() {
 
   const getDocs = async () => {
     let y = [];
-    const data = await firestore().collection('Wisata').get();
+    const data = await firestore().collection('Wisata').limit(3).get();
     data.docs.map(doc => {
       y.push({
         id: doc.id,
@@ -53,7 +53,7 @@ function Wisata() {
             </View>
           );
         })}
-        <FullViewBtn />
+        <FullViewBtn/>
       </View>
     </ScrollView>
   );

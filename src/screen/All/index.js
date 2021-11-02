@@ -3,7 +3,7 @@ import { View, Text,StyleSheet,ScrollView } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 import FullCard from '../../Component/FullCard';
 
-export default function All() {
+export default function All({navigation}) {
     const [Data, setData] = useState([]);
     const isMounted = useRef(false);
 
@@ -36,7 +36,7 @@ export default function All() {
                     Data.map((x)=>{
                         return(
                             <View key={x.id}>
-                                <FullCard nama={x.dat.Nama} gambar={x.dat.Gambar} kecamatan={x.dat.Kecamatan} kabupaten={x.dat.Kabupaten}/>
+                                <FullCard nama={x.dat.Nama} gambar={x.dat.Gambar} kecamatan={x.dat.Kecamatan} kabupaten={x.dat.Kabupaten} onPress={()=>navigation.push('Detail',{unique:x.id})}/>
                             </View>
                         )
                     })
