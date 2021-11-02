@@ -60,5 +60,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
   },
-  listcrd:{borderWidth:0.5,borderColor:'black',padding:20,width:350,alignSelf:'center',borderRadius:10,backgroundColor:'#BFBBBB',marginVertical:10},
+  listcrd:{borderWidth:0.5,borderColor:'black',padding:20,width:350,alignSelf:'center',borderRadius:10,backgroundColor:'white',marginVertical:10,elevation:5},
 });
