@@ -36,7 +36,7 @@ export default function Detail({route}) {
           </Subheading>
           <Paragraph style={styles.txt}>{Data.Deskripsi}</Paragraph>
         </View>
-      <MapButton />
+      <MapButton onPress={()=>Nav.navigate('Map',{itemGbr:Data.Gambar,itemNm:Data.Nama,itemKec:Data.Kecamatan,itemKab:Data.Kabupaten,itemL:Data.Latitude,itemLo:Data.Longitude})} />
     </View>
   );
 }

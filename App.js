@@ -7,7 +7,7 @@ import {
   Passrecovery,
   Intro,
   Detail,
-  Splash
+  Splash,
 } from './src/Screen';
 import Navigator from './src/Navigator';
 

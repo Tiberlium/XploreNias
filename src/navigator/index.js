@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Bookmark, Dashboard, User,Search, All, Detail} from '../Screen';
+import {Bookmark, Dashboard, User,Search, All, Map} from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -18,6 +18,11 @@ const Main = () => {
       <Stack.Screen
         name="Search"
         component={Search}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="Map"
+        component={Map}
         options={{headerShown: false}}
       />
        <Stack.Screen

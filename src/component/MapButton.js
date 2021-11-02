@@ -3,10 +3,10 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Subheading} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function MapButton() {
+export default function MapButton({onPress}) {
   return (
     <View>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={onPress}>
         <Subheading style={styles.txt}>Lihat Lokasi</Subheading>
         <View style={styles.wrapIcon}>
           <Icon name="arrow-forward" size={35} color="black" style={styles.icon} />
