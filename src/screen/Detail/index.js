@@ -27,16 +27,22 @@ export default function Detail({route}) {
 
   return (
     <View>
-      <Image source={{uri: Data.Gambar}} style={styles.img} />
+      <Image
+        source={{uri: Data.Gambar}}
+        style={styles.img}
+      />
       <BackButton onPress={() => Nav.goBack()} />
-        <View style={styles.wrap}>
-          <Headline style={styles.txt}>{Data.Nama}</Headline>
-          <Subheading style={styles.txt}>
-            {Data.Kecamatan},{Data.Kabupaten}
-          </Subheading>
-          <Paragraph style={styles.txt}>{Data.Deskripsi}</Paragraph>
-        </View>
-      <MapButton onPress={()=>Nav.navigate('Map',{itemGbr:Data.Gambar,itemNm:Data.Nama,itemKec:Data.Kecamatan,itemKab:Data.Kabupaten,itemL:Data.Latitude,itemLo:Data.Longitude})} />
+      <View style={styles.wrapjdl}>
+        <Headline style={styles.txt}>{Data.Nama}</Headline>
+        <Subheading style={styles.txt}>{Data.Kecamatan},{Data.Kabupaten}</Subheading>
+      </View>
+      <View style={styles.wrap}>
+        <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
+        <Paragraph style={styles.txt}>
+         {Data.Deskripsi}
+        </Paragraph>
+      </View>
+      <MapButton onPress={()=>Nav.navigate('Map',{itemGbr:Data.Gambar,itemKec:Data.Kecamatan,itemKab:Data.Kabupaten,itemL:Data.Latitude,itemLo:Data.Longitude,itemNm:Data.Nama})}/>
     </View>
   );
 }
@@ -49,6 +55,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 50,
     position: 'absolute',
   },
-  wrap: {padding: 20, marginTop: 350, position: 'absolute'},
+  wrapjdl:{borderWidth:0.5,backgroundColor:'white',width:250,borderRadius:10,marginLeft:20,padding:10,marginTop:210,elevation:5},
+  txtWisata:{fontWeight:'bold',color:'black',fontSize:20},
+  wrap: {padding: 20, marginTop: 380, position: 'absolute'},
   txt: {color: 'black', fontWeight: 'bold'},
 });
