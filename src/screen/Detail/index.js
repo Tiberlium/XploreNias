@@ -1,13 +1,14 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState, useRef} from 'react';
 import {View, Image, StyleSheet, ScrollView} from 'react-native';
-import {Headline, Subheading, Paragraph} from 'react-native-paper';
+import {Headline, Subheading, Paragraph, Snackbar} from 'react-native-paper';
 import BackButton from '../../Component/BackButton';
 import MapButton from '../../Component/MapButton';
 import BookmarkBtn from '../../Component/BookmarkBtn';
 import firestore from '@react-native-firebase/firestore';
 
 export default function Detail({route}) {
+
   const Nav = useNavigation();
   const isMounted = useRef(false);
   const itemId = route.params.unique;
@@ -31,6 +32,27 @@ export default function Detail({route}) {
     return () => (isMounted.current = false);
   }, []);
 
+  const addBookmark = async Dat => {
+    await firestore()
+      .collection('Bookmark')
+      .doc(itemId)
+      .set({
+        Nama: Dat.Nama,
+        Kecamatan: Dat.Kecamatan,
+        Kabupaten: Dat.Kabupaten,
+        Deskripsi: Dat.Deskripsi,
+        Gambar: Dat.Gambar,
+        Longitude: Dat.Longitude,
+        Latitude: Dat.Latitude,
+      })
+      .then(() => {
+        console.log('data ditambahkan');
+      })
+      .catch(e => {
+        alert('Terdapat Kesalahan');
+      });
+  };
+
   return (
     <View>
       <Image source={{uri: Data.Gambar}} style={styles.img} />
@@ -42,8 +64,10 @@ export default function Detail({route}) {
         </Subheading>
       </View>
       <View style={styles.wrap}>
-        <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
-        <Paragraph style={styles.txt}>{Data.Deskripsi}</Paragraph>
+        <ScrollView>
+          <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
+          <Paragraph style={styles.txt}>{Data.Deskripsi}</Paragraph>
+        </ScrollView>
       </View>
       <View style={styles.wrapBtn}>
         <MapButton
@@ -58,7 +82,12 @@ export default function Detail({route}) {
             })
           }
         />
-        <BookmarkBtn />
+        <BookmarkBtn
+          onPress={() => {
+            addBookmark(Data);
+            setVisible(true);
+          }}
+        />
       </View>
     </View>
   );
@@ -85,5 +114,12 @@ const styles = StyleSheet.create({
   txtWisata: {fontWeight: 'bold', color: 'black', fontSize: 20},
   wrap: {padding: 20, marginTop: 380, position: 'absolute'},
   txt: {color: 'black', fontWeight: 'bold'},
-  wrapBtn:{display:'flex',flexDirection:'row',justifyContent:'space-around',position:'absolute',alignSelf:'center',marginTop:650},
+  wrapBtn: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    position: 'absolute',
+    alignSelf: 'center',
+    marginTop: 650,
+  },
 });
