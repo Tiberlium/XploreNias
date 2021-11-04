@@ -32,11 +32,10 @@ export default function Detail({route}) {
     return () => (isMounted.current = false);
   }, []);
 
-  const addBookmark = async Dat => {
+  const Bookmark = async Dat => {
     await firestore()
       .collection('Bookmark')
-      .doc(itemId)
-      .set({
+      .add({
         Nama: Dat.Nama,
         Kecamatan: Dat.Kecamatan,
         Kabupaten: Dat.Kabupaten,
@@ -83,10 +82,7 @@ export default function Detail({route}) {
           }
         />
         <BookmarkBtn
-          onPress={() => {
-            addBookmark(Data);
-            setVisible(true);
-          }}
+          onPress={() => Bookmark(Data)}
         />
       </View>
     </View>

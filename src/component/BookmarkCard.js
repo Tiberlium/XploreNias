@@ -2,21 +2,24 @@ import React from 'react';
 import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {Card, Headline, Subheading} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
-export default function BookmarkCard() {
+
+
+
+export default function BookmarkCard({gambar,nama,kecamatan,kabupaten,onHapus,onPress}) {
   return (
     <View style={styles.parent}>
       <Card style={styles.card}>
-        <TouchableOpacity>
+        <TouchableOpacity onClick={onPress}>
           <Image
-            source={{uri: 'https://placeimg.com/350/175/animals'}}
+            source={{uri:gambar}}
             style={styles.img}
           />
         </TouchableOpacity>
         <View style={styles.wrap}>
-          <Headline style={styles.txt}>Lorem</Headline>
-          <Subheading style={styles.txt}>Lorem,Ipsum Dolor</Subheading>
+          <Headline style={styles.txt}>{nama}</Headline>
+          <Subheading style={styles.txt}>{kecamatan},{kabupaten}</Subheading>
         </View>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={onHapus}>
           <Icon name="trash-2" color="white" size={30} style={styles.btnIcon} />
         </TouchableOpacity>
       </Card>
