@@ -2,15 +2,15 @@ import React from 'react'
 import { View,TouchableOpacity,Image,StyleSheet } from 'react-native'
 import {Headline,Subheading,Caption} from 'react-native-paper'
 
-export default function ResultCard() {
+export default function ResultCard({gambar,nama,kecamatan,kabupaten,kategori}) {
     return (
         <View>
             <TouchableOpacity>
-                    <Image source={{uri:"https://placeimg.com/640/480/nature"}} style={styles.img}/>
+                    <Image source={{uri:gambar}} style={styles.img}/>
                     <View style={styles.wrap}>
-                        <Headline style={styles.txt}>Lorem</Headline>
-                        <Subheading style={styles.txt}>Lorem ipsum,dolor</Subheading>
-                        <Caption style={styles.txt}>Event</Caption>
+                        <Headline style={styles.txt}>{nama}</Headline>
+                        <Subheading style={styles.txt}>{kecamatan},{kabupaten}</Subheading>
+                        <Caption style={styles.txt}>{kategori}</Caption>
                     </View>
             </TouchableOpacity>
         </View>

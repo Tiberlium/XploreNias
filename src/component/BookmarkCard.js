@@ -9,16 +9,16 @@ export default function BookmarkCard({gambar,nama,kecamatan,kabupaten,onHapus,on
   return (
     <View style={styles.parent}>
       <Card style={styles.card}>
-        <TouchableOpacity onClick={onPress}>
+        <TouchableOpacity onPress={onPress}>
           <Image
             source={{uri:gambar}}
             style={styles.img}
           />
-        </TouchableOpacity>
         <View style={styles.wrap}>
           <Headline style={styles.txt}>{nama}</Headline>
           <Subheading style={styles.txt}>{kecamatan},{kabupaten}</Subheading>
         </View>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={onHapus}>
           <Icon name="trash-2" color="white" size={30} style={styles.btnIcon} />
         </TouchableOpacity>

@@ -1,56 +1,44 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState, useRef} from 'react';
 import {View, Image, StyleSheet, ScrollView} from 'react-native';
-import {Headline, Subheading, Paragraph, Snackbar} from 'react-native-paper';
+import {Headline, Subheading, Paragraph} from 'react-native-paper';
 import BackButton from '../../Component/BackButton';
 import MapButton from '../../Component/MapButton';
 import BookmarkBtn from '../../Component/BookmarkBtn';
 import firestore from '@react-native-firebase/firestore';
+import { identifier } from '@babel/types';
 
 export default function Detail({route}) {
-
   const Nav = useNavigation();
   const isMounted = useRef(false);
-  const itemId = route.params.unique;
+  const {unique,diff} = route.params;
   const [Data, setData] = useState({});
+  
 
-  const getDocs = async () => {
-    await firestore()
-      .collection('Wisata')
-      .doc(itemId)
-      .get()
-      .then(doc => {
-        if (isMounted.current) {
+  function Get(){
+    if(unique){
+      const A = firestore().collection('Wisata').doc(unique).get();
+      A.then(doc => {
+        if(isMounted.current){
           setData(doc.data());
         }
       });
-  };
+    }
+    else{
+      const B = firestore().collection('Bookmark').doc(diff).get();
+      B.then(doc => {
+        if(isMounted.current){
+          setData(doc.data());
+        }
+      });
+    }
+  }
 
   useEffect(() => {
     isMounted.current = true;
-    getDocs();
+    Get();
     return () => (isMounted.current = false);
   }, []);
-
-  const Bookmark = async Dat => {
-    await firestore()
-      .collection('Bookmark')
-      .add({
-        Nama: Dat.Nama,
-        Kecamatan: Dat.Kecamatan,
-        Kabupaten: Dat.Kabupaten,
-        Deskripsi: Dat.Deskripsi,
-        Gambar: Dat.Gambar,
-        Longitude: Dat.Longitude,
-        Latitude: Dat.Latitude,
-      })
-      .then(() => {
-        console.log('data ditambahkan');
-      })
-      .catch(e => {
-        alert('Terdapat Kesalahan');
-      });
-  };
 
   return (
     <View>
@@ -82,7 +70,16 @@ export default function Detail({route}) {
           }
         />
         <BookmarkBtn
-          onPress={() => Bookmark(Data)}
+          onPress={() => {
+            firestore().collection('Bookmark').add({
+              Gambar: Data.Gambar,
+              Kecamatan: Data.Kecamatan,
+              Kabupaten: Data.Kabupaten,
+              Latitude: Data.Latitude,
+              Longitude: Data.Longitude,
+              Nama: Data.Nama,
+            });
+          }}
         />
       </View>
     </View>
