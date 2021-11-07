@@ -16,7 +16,11 @@ function Wisata() {
 
   const getDocs = async () => {
     let y = [];
-    const data = await firestore().collection('Wisata').limit(3).get();
+    const data = await firestore()
+      .collection('Wisata')
+      .where('Kategori', '==', 'Tempat wisata')
+      .limit(3)
+      .get();
     data.docs.map(doc => {
       y.push({
         id: doc.id,

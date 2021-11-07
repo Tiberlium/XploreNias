@@ -1,7 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import {firebase} from '@react-native-firebase/auth';
 
 export default function Info() {
+
+  const user = firebase.auth().currentUser;
+
+
   return (
     <View>
       <Image
@@ -19,11 +24,11 @@ export default function Info() {
       </Text>
       <View style={styles.wrap}>
         <Text style={styles.txtProp}>Nama</Text>
-        <Text style={styles.txtValue}>Wibu.nolep</Text>
+        <Text style={styles.txtValue}>{user.displayName}</Text>
       </View>
       <View style={styles.wrap}>
         <Text style={styles.txtProp}>Email</Text>
-        <Text style={styles.txtValue}>Wibu.nolep@gmail.com</Text>
+        <Text style={styles.txtValue}>{user.email}</Text>
       </View>
     </View>
   );
