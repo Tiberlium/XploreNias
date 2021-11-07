@@ -1,7 +1,17 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Bookmark, Dashboard, User,Search, All, Map, About, Other} from '../Screen';
+import {
+  Bookmark,
+  Dashboard,
+  User,
+  Search,
+  All,
+  Map,
+  About,
+  Other,
+  Info,
+} from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -25,30 +35,25 @@ const Main = () => {
         component={Search}
         options={{headerShown: false}}
       />
-       <Stack.Screen
-        name="Map"
-        component={Map}
-        options={{headerShown: false}}
-      />
-       <Stack.Screen
-        name="All"
-        component={All}
-        options={{headerShown: false}}
-      />
+      <Stack.Screen name="Map" component={Map} options={{headerShown: false}} />
+      <Stack.Screen name="All" component={All} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };
 
-
-
-const Main3 = () =>{
-  return(
+const Main3 = () => {
+  return (
     <Stack.Navigator>
-       <Stack.Screen name="User" component={User} options={{headerShown:false}}/>
-      <Stack.Screen name="About" component={About}/>
+      <Stack.Screen
+        name="User"
+        component={User}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="Info" component={Info} />
+      <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
 export default function Navigator() {
   return (

@@ -13,5 +13,6 @@ import All from './All';
 import Map from './Map';
 import About from './About';
 import Other from './Other';
+import Info from './Info';
 
-export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery,All,Map,About,Other};
+export {Bookmark,Intro,Login,Register,Search,Splash,Reminder,Dashboard,Detail,User,Passrecovery,All,Map,About,Other,Info};

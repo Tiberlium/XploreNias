@@ -42,7 +42,7 @@ export default function User({navigation}) {
     <View>
       {user ? Exist() : Anon()}
       <View>
-        <List title="Informasi Akun" icon="account"/>
+        <List title="Informasi Akun" icon="account" onPress={()=>navigation.navigate('Info')}/>
         <List title="Tentang" icon="information" onPress={()=>navigation.navigate('About')}/>
       </View>
       <Logoutbtn />
