@@ -8,6 +8,7 @@ import {
   Intro,
   Detail,
   Splash,
+  About,
 } from './src/Screen';
 import Navigator from './src/Navigator';
 

@@ -4,7 +4,7 @@ import {Button} from 'react-native-paper';
 import {firebase} from '@react-native-firebase/auth';
 import Logoutbtn from '../../Component/Logoutbtn';
 
-export default function User() {
+export default function User({navigation}) {
   const user = firebase.auth().currentUser;
 
   const Anon = () => {
@@ -28,10 +28,10 @@ export default function User() {
     );
   };
 
-  const List = ({title,icon}) => {
+  const List = ({title,icon,onPress}) => {
     return (
       <View style={styles.listcrd}>
-        <Button mode="text" color="black" icon={icon}>
+        <Button mode="text" color="black" icon={icon} onPress={onPress}>
           {title}
         </Button>
       </View>
@@ -43,7 +43,7 @@ export default function User() {
       {user ? Exist() : Anon()}
       <View>
         <List title="Informasi Akun" icon="account"/>
-        <List title="Tentang" icon="information"/>
+        <List title="Tentang" icon="information" onPress={()=>navigation.navigate('About')}/>
       </View>
       <Logoutbtn />
     </View>
