@@ -11,6 +11,7 @@ import {
   About,
 } from './src/Screen';
 import Navigator from './src/Navigator';
+import OtherCard from './src/Component/OtherCard';
 
 
 
@@ -31,10 +32,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={Splash}
+          component={OtherCard}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+         {/* <Stack.Screen
           name="Intro"
           component={Intro}
           options={{headerShown: false}}
@@ -63,7 +64,7 @@ export default function App() {
           name="Navigator"
           component={Navigator}
           options={{headerShown: false}}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
