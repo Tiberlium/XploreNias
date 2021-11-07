@@ -9,9 +9,9 @@ import {
   Detail,
   Splash,
   About,
+  Other,
 } from './src/Screen';
 import Navigator from './src/Navigator';
-import OtherCard from './src/Component/OtherCard';
 
 
 
@@ -32,7 +32,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={OtherCard}
+          component={Other}
           options={{headerShown: false}}
         />
          {/* <Stack.Screen
