@@ -7,7 +7,7 @@ import ThumbCard from '../../Component/ThumbCard';
 import FullViewBtn from '../../Component/FullViewBtn';
 import CategoryBtn from '../../Component/CategoryBtn';
 import firestore from '@react-native-firebase/firestore';
-import { useNavigation } from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/core';
 
 function Wisata() {
   const navigation = useNavigation();
@@ -48,18 +48,19 @@ function Wisata() {
                 gambar={x.dat.Gambar}
                 kecamatan={x.dat.Kecamatan}
                 kabupaten={x.dat.Kabupaten}
-                onPress={()=>navigation.push('Detail',{unique:x.id})}
+                onPress={() => navigation.navigate('Detail', {unique: x.id})}
               />
             </View>
           );
         })}
-        <FullViewBtn/>
+        <FullViewBtn />
       </View>
     </ScrollView>
   );
 }
 
 function Category() {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -67,9 +68,21 @@ function Category() {
         flexDirection: 'row',
         justifyContent: 'space-around',
       }}>
-      <CategoryBtn name="calendar" title="Event"/>
-      <CategoryBtn name="pizza" title="Makanan" />
-      <CategoryBtn name="basket" title="Suvenir"/>
+      <CategoryBtn
+        name="calendar"
+        title="Event"
+        onPress={() => navigation.navigate('Other')}
+      />
+      <CategoryBtn
+        name="pizza"
+        title="Makanan"
+        onPress={() => navigation.navigate('Other')}
+      />
+      <CategoryBtn
+        name="basket"
+        title="Suvenir"
+        onPress={() => navigation.navigate('Other')}
+      />
     </View>
   );
 }

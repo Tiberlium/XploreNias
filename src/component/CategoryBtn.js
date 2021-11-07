@@ -3,10 +3,10 @@ import {View, TouchableOpacity, StyleSheet,Text} from 'react-native';
 import {Card} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function CategoryBtn({name,title}) {
+export default function CategoryBtn({name,title,onPress}) {
   return (
     <View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress} >
         <Card style={styles.btn}>
           <Icon name={name} size={25} color="blue" style={styles.icon}/>
           <Text style={styles.txt}>{title}</Text>

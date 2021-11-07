@@ -8,8 +8,6 @@ import {
   Intro,
   Detail,
   Splash,
-  About,
-  Other,
 } from './src/Screen';
 import Navigator from './src/Navigator';
 
@@ -32,10 +30,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={Other}
+          component={Splash}
           options={{headerShown: false}}
         />
-         {/* <Stack.Screen
+         <Stack.Screen
           name="Intro"
           component={Intro}
           options={{headerShown: false}}
@@ -64,7 +62,7 @@ export default function App() {
           name="Navigator"
           component={Navigator}
           options={{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
