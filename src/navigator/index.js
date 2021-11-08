@@ -9,8 +9,9 @@ import {
   All,
   Map,
   About,
-  Other,
+  Otherdetail,
   Info,
+  Other,
 } from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -28,6 +29,10 @@ const Main = () => {
       <Stack.Screen
         name="Other"
         component={Other}
+      />
+      <Stack.Screen
+        name="Otherdetail"
+        component={Otherdetail}
         options={{headerShown: false}}
       />
       <Stack.Screen

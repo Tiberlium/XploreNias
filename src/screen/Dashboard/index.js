@@ -75,17 +75,17 @@ function Category() {
       <CategoryBtn
         name="calendar"
         title="Event"
-        onPress={() => navigation.navigate('Other')}
+        onPress={() => navigation.navigate('Other', {col: 'Event'})}
       />
       <CategoryBtn
         name="pizza"
         title="Makanan"
-        onPress={() => navigation.navigate('Other')}
+        onPress={() => navigation.navigate('Other', {col: 'Makanan'})}
       />
       <CategoryBtn
         name="basket"
         title="Suvenir"
-        onPress={() => navigation.navigate('Other')}
+        onPress={() => navigation.navigate('Other', {col: 'Souvenir'})}
       />
     </View>
   );

@@ -1,17 +1,17 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default function OtherCard({onPress}) {
+export default function OtherCard({onPress,Gambar,Judul,Kategori}) {
   return (
     <View>
       <TouchableOpacity onPress={onPress}>
         <Image
-          source={{uri: 'https://placeimg.com/640/480/animals'}}
+          source={{uri: Gambar}}
           style={styles.img}
         />
         <View style={styles.wrap}>
-            <Text style={styles.txtJudul}>Lorem Ipsum dolor</Text>
-            <Text style={styles.txtsubJudul}>Event</Text>
+            <Text style={styles.txtJudul}>{Judul}</Text>
+            <Text style={styles.txtsubJudul}>{Kategori}</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 20,
     alignSelf: 'center',
-    marginVertical: 10,
+    marginVertical: 40,
   },
   wrap:{marginLeft:50,marginTop:-100},
   txtJudul:{fontWeight:'bold',fontSize:20,color:'white'},

@@ -14,6 +14,7 @@ import Navigator from './src/Navigator';
 
 
 
+
 const Stack = createNativeStackNavigator();
 
 const MyTheme = {
