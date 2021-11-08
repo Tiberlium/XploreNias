@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {View, StyleSheet, Text, ScrollView} from 'react-native';
 import Profile from '../../Component/Profile';
-import Reminder from '../../Component/Reminder';
 import SearchBtn from '../../Component/SearchBtn';
 import ThumbCard from '../../Component/ThumbCard';
 import FullViewBtn from '../../Component/FullViewBtn';
@@ -94,12 +93,9 @@ function Category() {
 export default function Dashboard() {
   return (
     <View>
-      <View style={styles.wrap}>
-        <Profile />
-        <Reminder />
-      </View>
-      <Text style={styles.txtDiscovery}>Jelajahi</Text>
-      <Text style={styles.txtDiscovery}>Keindahan Nias</Text>
+      <Profile />
+      <Text style={styles.txtDiscovery0}>Jelajahi</Text>
+      <Text style={styles.txtDiscovery1}>Keindahan Nias</Text>
       <SearchBtn />
       <Text style={styles.txtCategory}>Lainnya</Text>
       <Category />
@@ -113,10 +109,16 @@ const styles = StyleSheet.create({
   wrap: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  txtDiscovery: {
+  txtDiscovery0: {
+    fontSize: 30,
+    marginLeft: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    marginTop: 60,
+  },
+  txtDiscovery1: {
     fontSize: 30,
     marginLeft: 20,
     fontWeight: 'bold',
