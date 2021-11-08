@@ -21,5 +21,5 @@ export default function ThumbCard({gambar,nama,kecamatan,kabupaten,onPress}) {
 const styles = StyleSheet.create({
   img: {height: 220, width: 220, borderRadius: 30, marginLeft:20,marginTop:20},
   wrapTxt: {marginLeft: 30, marginTop: -100},
-  txt: {color: 'white'},
+  txt: {color: 'white',fontWeight:'bold'},
 });

@@ -32,7 +32,7 @@ export default function Search() {
       <SearchBars onChange={setQuery} value={Query}/>
       <Text style={Styles.txthasil}>Hasil</Text>
       <ScrollView>
-        {hasil.filter(x => x.dat.Nama == Query).map(x => {
+        {hasil.filter(x => x.dat.Nama.toLowerCase() == Query.toLowerCase()).map(x => {
           return (
             <View key={x.id}>
               <ResultCard
