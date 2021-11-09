@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Feather';
 
 export default function BackButton({onPress}) {
@@ -15,11 +16,12 @@ export default function BackButton({onPress}) {
 const styles = StyleSheet.create({
   btn: {
     borderWidth: 0.5,
-    width: 50,
-    height: 50,
+    width: wp(13),
+    height: hp(6.5),
     borderRadius: 25,
     margin:20,
-    backgroundColor:'white'
+    backgroundColor:'white',
+    elevation:5,
   },
-  icon: {marginTop:2,marginLeft:2},
+  icon: {marginTop:hp(0.5),marginLeft:wp(0.5)},
 });

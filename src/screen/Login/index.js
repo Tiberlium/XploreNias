@@ -28,8 +28,7 @@ export default function Login({navigation}) {
     }
     await auth()
       .signInWithEmailAndPassword(Email, Password)
-      .then(userCredential => {
-        const user = userCredential.user;
+      .then(() => {
         navigation.navigate('Navigator');
       })
       .catch(error => {
@@ -92,7 +91,7 @@ export default function Login({navigation}) {
         <Logobtn
           source={require('../../Asset/Image/google.png')}
           onPress={() =>
-            onGoogleButtonPress().then(() => navigation.navigate('Dashboard'))
+            onGoogleButtonPress().then(() => navigation.navigate('Navigator'))
           }
         />
         <Logobtn source={require('../../Asset/Image/facebook.png')} />
@@ -162,6 +161,6 @@ const styles = StyleSheet.create({
     marginVertical: hp(0.5),
   },
   txtAtau:{fontSize:hp('2'),marginHorizontal:wp('32'),marginTop:hp(2)},
-  txtUnlog: {fontSize: 15},
+  txtUnlog: {fontSize: hp(2)},
   txtUnlogBtn: {fontSize:hp('2'),fontWeight:'bold',color:'black',marginLeft:wp(2)},
 });

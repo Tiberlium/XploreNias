@@ -8,6 +8,11 @@ import {
   Image,
 } from 'react-native';
 import Auth from '@react-native-firebase/auth';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import BackButton from '../../Component/BackButton';
 
 export default function Passrecovery({navigation}) {
   const [Email, setEmail] = useState('');
@@ -16,7 +21,7 @@ export default function Passrecovery({navigation}) {
     Auth()
       .sendPasswordResetEmail(Email)
       .then(() => {
-        alert("Silahkan Cek inbox Email anda");
+        alert('Silahkan Cek inbox Email anda');
         navigation.navigate('Login');
       })
       .catch(e => {
@@ -26,7 +31,11 @@ export default function Passrecovery({navigation}) {
 
   return (
     <View>
-      <Image source={require('../../Asset/Image/Email.png')} style={styles.img}/>
+      <BackButton onPress={()=>navigation.goBack()}/>
+      <Image
+        source={require('../../Asset/Image/Email.png')}
+        style={styles.img}
+      />
       <Text style={styles.txt}>Masukkan Email anda</Text>
       <TextInput
         placeholder="Email"
@@ -42,31 +51,44 @@ export default function Passrecovery({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  img:{height:200,width:250,marginHorizontal:75},
-  txt: {fontWeight: 'bold', fontSize: 20, padding: 10,color:'black'},
+  img: {
+    height: hp(30),
+    width: wp(55),
+    marginHorizontal: wp(23),
+    marginVertical: hp(5),
+    position: 'absolute',
+  },
+  txt: {
+    fontWeight: 'bold',
+    fontSize: hp(3),
+    padding: 10,
+    color: 'black',
+    marginLeft: 15,
+    marginTop: hp(20),
+  },
   txtInput: {
     borderColor: 'black',
-    borderWidth: 1,
-    width: 350,
-    borderRadius: 10,
+    borderWidth: 0.5,
+    width: wp(90),
+    borderRadius: 25,
     margin: 20,
-    height: 60,
+    height: hp(8),
+    backgroundColor: 'white',
+    elevation: 5,
   },
   btn: {
-    width: 200,
-    borderColor: 'black',
-    borderWidth: 1,
-    height: 50,
-    borderRadius: 10,
+    width: wp(50),
+    height: hp(7),
+    borderRadius: 25,
     marginTop: 10,
     marginHorizontal: 100,
     backgroundColor: '#3366ff',
   },
   txtbtn: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: hp(2.5),
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: hp(1.5),
     color: 'white',
   },
 });
