@@ -9,7 +9,7 @@ export default function SearchBtn() {
     <View style={styles.wrap}>
       <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Search')}>       
           <Icon name="search" size={25} color="blue"/>
-          <Text style={styles.txt}>Search</Text>
+          <Text style={styles.txt}>Pencarian</Text>
       </TouchableOpacity>
     </View>
   )

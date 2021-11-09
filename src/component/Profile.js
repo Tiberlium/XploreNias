@@ -1,35 +1,40 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {firebase} from '@react-native-firebase/auth';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
-export default function Profile() {
+export default function Profile({onPress}) {
   const user = firebase.auth().currentUser;
 
   const Exist = () => {
     return (
-      <View style={styles.wrap}>
-        <Text style={styles.txt}>{user.displayName}</Text>
-        <Image
-          source={{
-            uri: user.photoURL,
-          }}
-          style={styles.img}
-        />
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.wrap}>
+          <Text style={styles.txt}>{user.displayName}</Text>
+          <Image
+            source={{
+              uri: user.photoURL,
+            }}
+            style={styles.img}
+          />
+        </View>
+      </TouchableOpacity>
     );
   };
 
   const None = () => {
     return (
-      <View style={styles.wrap}>
-        <Text style={styles.txt}>Anonymous</Text>
-        <Image
-          source={{
-            uri: 'https://i.pravatar.cc/300',
-          }}
-          style={styles.img}
-        />
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.wrap}>
+          <Text style={styles.txt}>Anonymous</Text>
+          <Image
+            source={{
+              uri: 'https://i.pravatar.cc/300',
+            }}
+            style={styles.img}
+          />
+        </View>
+      </TouchableOpacity>
     );
   };
 
@@ -45,12 +50,12 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   img: {
-    height: 50,
-    width: 50,
+    height: hp(7),
+    width: wp(14),
     borderRadius: 20,
-    marginTop: 20,
-    marginLeft: 20,
-    marginRight: 10,
+    marginTop: hp(2.5),
+    marginLeft: wp(2),
+    marginRight: wp(5),
   },
-  txt: {fontWeight: 'bold', fontSize: 15, marginVertical: 35, color: 'black'},
+  txt: {fontWeight: 'bold', fontSize: hp(2), marginVertical: hp(4.5), color: 'black'},
 });
