@@ -6,7 +6,6 @@ import BackButton from '../../Component/BackButton';
 import MapButton from '../../Component/MapButton';
 import BookmarkBtn from '../../Component/BookmarkBtn';
 import firestore from '@react-native-firebase/firestore';
-import { identifier } from '@babel/types';
 
 export default function Detail({route}) {
   const Nav = useNavigation();
@@ -16,7 +15,8 @@ export default function Detail({route}) {
   
 
   function Get(){
-    if(unique){
+
+    if(route.params.unique){
       const A = firestore().collection('Wisata').doc(unique).get();
       A.then(doc => {
         if(isMounted.current){

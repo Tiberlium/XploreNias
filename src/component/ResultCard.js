@@ -2,10 +2,10 @@ import React from 'react'
 import { View,TouchableOpacity,Image,StyleSheet } from 'react-native'
 import {Headline,Subheading,Caption} from 'react-native-paper'
 
-export default function ResultCard({gambar,nama,kecamatan,kabupaten,kategori}) {
+export default function ResultCard({gambar,nama,kecamatan,kabupaten,kategori,onPress}) {
     return (
         <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
                     <Image source={{uri:gambar}} style={styles.img}/>
                     <View style={styles.wrap}>
                         <Headline style={styles.txt}>{nama}</Headline>

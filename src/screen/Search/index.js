@@ -4,7 +4,7 @@ import SearchBars from '../../Component/SearchBars';
 import firestore from '@react-native-firebase/firestore';
 import ResultCard from '../../Component/ResultCard';
 
-export default function Search() {
+export default function Search({navigation}) {
   const [Data, setData] = useState([]);
   const [Query, setQuery] = useState('');
 
@@ -24,8 +24,16 @@ export default function Search() {
     Get();
   }, []);
 
-  let hasil = Data;
+  const Nav = (kategori,id) =>{
+    if(kategori === 'Tempat wisata'){
+      navigation.navigate('Detail',{unique:id})
+    }
+    else{
+      navigation.navigate('Otherdetail',{id:id})
+    }
+  }
 
+  let hasil = Data;
   return (
     <View>
       <Text style={Styles.txt}>Pencarian</Text>
@@ -41,6 +49,7 @@ export default function Search() {
                 kecamatan={x.dat.Kecamatan}
                 kabupaten={x.dat.Kabupaten}
                 kategori={x.dat.Kategori}
+                onPress={()=>Nav(x.dat.Kategori,x.id)}
               />
             </View>
           );
