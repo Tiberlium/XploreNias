@@ -45,7 +45,7 @@ export default function User({navigation}) {
         <List title="Informasi Akun" icon="account" onPress={()=>navigation.navigate('Info')}/>
         <List title="Tentang" icon="information" onPress={()=>navigation.navigate('About')}/>
       </View>
-      <Logoutbtn />
+      <Logoutbtn onPress={()=>firebase.auth().signOut().then(()=>navigation.navigate('Intro'))}/>
     </View>
   );
 }

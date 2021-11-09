@@ -10,7 +10,6 @@ import firestore from '@react-native-firebase/firestore';
 export default function Detail({route}) {
   const Nav = useNavigation();
   const isMounted = useRef(false);
-  const {unique,diff} = route.params;
   const [Data, setData] = useState({});
   
 
@@ -19,14 +18,6 @@ export default function Detail({route}) {
     if(route.params.unique){
       const A = firestore().collection('Wisata').doc(unique).get();
       A.then(doc => {
-        if(isMounted.current){
-          setData(doc.data());
-        }
-      });
-    }
-    else{
-      const B = firestore().collection('Bookmark').doc(diff).get();
-      B.then(doc => {
         if(isMounted.current){
           setData(doc.data());
         }
@@ -69,18 +60,7 @@ export default function Detail({route}) {
             })
           }
         />
-        <BookmarkBtn
-          onPress={() => {
-            firestore().collection('Bookmark').add({
-              Gambar: Data.Gambar,
-              Kecamatan: Data.Kecamatan,
-              Kabupaten: Data.Kabupaten,
-              Latitude: Data.Latitude,
-              Longitude: Data.Longitude,
-              Nama: Data.Nama,
-            });
-          }}
-        />
+        <BookmarkBtn/>
       </View>
     </View>
   );

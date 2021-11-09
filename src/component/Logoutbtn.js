@@ -1,14 +1,12 @@
 import React from 'react'
 import { View, StyleSheet,TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
-import auth from '@react-native-firebase/auth'
-import { useNavigation } from '@react-navigation/core'
 
-export default function Logoutbtn() {
-    const navigation = useNavigation();
+
+export default function Logoutbtn({onPress}) {
     return (
         <View>
-            <TouchableOpacity style={styles.btn} onPress={()=>auth().signOut().then(()=>navigation.navigate('Intro'))}>
+            <TouchableOpacity style={styles.btn} onPress={onPress}>
                 <Icon name="log-out" size={25} color="white" style={styles.icon}/>
             </TouchableOpacity>
         </View>
