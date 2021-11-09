@@ -4,21 +4,28 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
+  Text,
 } from 'react-native';
-import {Title, Subheading} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export default function Intro({navigation}) {
   return (
     <View>
-      <ImageBackground source={require('../../Asset/Image/Bawomataluo.jpg')}>
+      <ImageBackground
+        source={require('../../Asset/Image/Bawomataluo.jpg')}
+        style={{height: 750, width: 400}}>
         <View style={styles.wrap}>
-          <Title style={styles.txtTitle}>Jelajahi</Title>
-          <Subheading style={styles.txtSub}>Mari Mengenal Nias</Subheading>
-          <Subheading style={styles.txtSub}>Melalui Genggaman </Subheading>
-          <Subheading style={styles.txtSub}>Anda</Subheading>
+          <Text style={styles.txtTitle}>JELAJAHI</Text>
+          <Text style={styles.txtSub0}>Mari Mengenal Nias</Text>
+          <Text style={styles.txtSub1}>Melalui Genggaman anda </Text>
         </View>
-        <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Login')}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('Login')}>
           <Icon
             name="chevron-right"
             size={40}
@@ -32,16 +39,17 @@ export default function Intro({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  wrap: {padding: 20, marginVertical: 50},
-  txtTitle: {fontSize: 30, color: '#ffff'},
-  txtSub: {fontSize: 20, color: '#ffff'},
+  wrap: {marginVertical: hp(5), marginLeft: wp(5)},
+  txtTitle: {fontSize: 45, color: '#ffff', fontWeight: 'bold'},
+  txtSub0: {fontSize: 20, color: '#ffff', margin: 10},
+  txtSub1: {fontSize: 20, color: '#ffff', marginLeft: 10},
   btn: {
-    width: 60,
-    height: 60,
+    width: wp(16),
+    height: hp(8),
     backgroundColor: '#DF4F30',
     borderRadius: 40,
-    marginHorizontal: 160,
-    marginVertical: 300,
+    marginHorizontal: hp(21),
+    marginVertical: hp(50),
   },
-  btnIcon: {marginHorizontal: 10, marginVertical: 8},
+  btnIcon: {marginHorizontal: 12, marginVertical: hp(1)},
 });

@@ -11,18 +11,14 @@ export default function Detail({route}) {
   const Nav = useNavigation();
   const isMounted = useRef(false);
   const [Data, setData] = useState({});
-  
 
-  function Get(){
-
-    if(route.params.unique){
-      const A = firestore().collection('Wisata').doc(unique).get();
-      A.then(doc => {
-        if(isMounted.current){
-          setData(doc.data());
-        }
-      });
-    }
+  function Get() {
+    const A = firestore().collection('Wisata').doc(unique).get();
+    A.then(doc => {
+      if (isMounted.current) {
+        setData(doc.data());
+      }
+    });
   }
 
   useEffect(() => {
@@ -60,7 +56,7 @@ export default function Detail({route}) {
             })
           }
         />
-        <BookmarkBtn/>
+        <BookmarkBtn />
       </View>
     </View>
   );

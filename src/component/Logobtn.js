@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5Pro';
+import {View, TouchableOpacity, StyleSheet,Image} from 'react-native';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-export default function Logobtn({nama,onPress}) {
+export default function Logobtn({source,onPress}) {
   return (
     <View>
       <TouchableOpacity style={styles.btn} onPress={onPress}>
-        <Icon name={nama} size={30} color="white" style={styles.logo} />
+        <Image source={source} style={styles.logo}/>
       </TouchableOpacity>
     </View>
   );
@@ -14,10 +14,12 @@ export default function Logobtn({nama,onPress}) {
 
 const styles = StyleSheet.create({
   btn: {
-    width: 60,
-    height: 60,
-    backgroundColor: 'blue',
+    width: wp(15.5),
+    height: hp(8),
     borderRadius: 33,
+    borderWidth:0.4,
+    backgroundColor:'white',
+    elevation:5,
   },
-  logo: {marginVertical: 14, marginHorizontal: 16},
+  logo:{height:40,width:40,marginLeft:wp(2.5),marginTop:(10)}
 });
