@@ -7,6 +7,10 @@ import FullViewBtn from '../../Component/FullViewBtn';
 import CategoryBtn from '../../Component/CategoryBtn';
 import firestore from '@react-native-firebase/firestore';
 import {useNavigation} from '@react-navigation/core';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 function Wisata() {
   const navigation = useNavigation();
@@ -41,7 +45,7 @@ function Wisata() {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={{height: 450}}>
+      style={{height: hp(35)}}>
       <View style={styles.wrap}>
         {Data.map(x => {
           return (
@@ -74,16 +78,19 @@ function Category() {
       <CategoryBtn
         name="calendar"
         title="Event"
+        color="red"
         onPress={() => navigation.navigate('Other', {col: 'Event'})}
       />
       <CategoryBtn
         name="pizza"
         title="Makanan"
+        color="blue"
         onPress={() => navigation.navigate('Other', {col: 'Makanan'})}
       />
       <CategoryBtn
         name="basket"
         title="Suvenir"
+        color="green"
         onPress={() => navigation.navigate('Other', {col: 'Souvenir'})}
       />
     </View>
@@ -93,13 +100,16 @@ function Category() {
 export default function Dashboard({navigation}) {
   return (
     <View>
-      <Profile onPress={()=>navigation.navigate('Main3')}/>
+      <Profile onPress={() => navigation.navigate('Main3')} />
       <Text style={styles.txtDiscovery0}>Jelajahi</Text>
       <Text style={styles.txtDiscovery1}>Keindahan Nias</Text>
       <SearchBtn />
       <Text style={styles.txtCategory}>Lainnya</Text>
       <Category />
-      <Text style={styles.txtWisata}>Tempat Wisata</Text>
+      <View style={{display:'flex',flexDirection:'row'}}>
+        <Text style={styles.txtWisata0}>Tempat</Text>
+        <Text style={styles.txtWisata1}>Wisata</Text>
+      </View>
       <Wisata />
     </View>
   );
@@ -112,31 +122,38 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   txtDiscovery0: {
-    fontSize: 30,
-    marginLeft: 20,
+    fontSize: hp(4),
+    marginLeft: wp(4),
     fontWeight: 'bold',
     color: 'black',
-    marginTop: 60,
+    marginTop: hp(8),
   },
   txtDiscovery1: {
-    fontSize: 30,
-    marginLeft: 20,
-    fontWeight: 'bold',
+    fontSize: hp(4),
+    marginLeft: wp(4),
+    fontWeight: '200',
     color: 'black',
-    marginTop: 10,
+    marginTop: hp(0.5),
   },
   txtCategory: {
-    fontSize: 15,
+    fontSize: hp(3),
     color: 'black',
     fontWeight: 'bold',
-    marginLeft: 20,
-    marginTop: 10,
+    marginLeft: wp(4),
+    marginTop: hp(1),
   },
-  txtWisata: {
+  txtWisata0: {
     fontWeight: 'bold',
     color: 'black',
-    fontSize: 20,
-    marginTop: 20,
-    marginLeft: 20,
+    fontSize: hp(3),
+    marginTop: hp(2),
+    marginLeft: wp(4),
+  },
+  txtWisata1: {
+    fontWeight: '200',
+    color: 'black',
+    fontSize: hp(3),
+    marginLeft: wp(1.5),
+    marginTop:hp(2)
   },
 });

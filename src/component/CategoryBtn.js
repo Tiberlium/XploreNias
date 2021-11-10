@@ -1,16 +1,17 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet,Text} from 'react-native';
 import {Card} from 'react-native-paper';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function CategoryBtn({name,title,onPress}) {
+export default function CategoryBtn({name,title,onPress,color}) {
   return (
     <View>
       <TouchableOpacity onPress={onPress} >
         <Card style={styles.btn}>
-          <Icon name={name} size={25} color="blue" style={styles.icon}/>
-          <Text style={styles.txt}>{title}</Text>
+          <Icon name={name} size={30} color={color} style={styles.icon}/>
         </Card>
+        <Text style={styles.txt}>{title}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -18,12 +19,11 @@ export default function CategoryBtn({name,title,onPress}) {
 
 const styles = StyleSheet.create({
   btn: {
-    height:70,
-    width: 85,
     borderWidth:0.5,
-    borderRadius: 20,
-    borderColor:'black',
-    marginTop:10,
+    height:hp(9.5),
+    width: wp(19),
+    borderRadius: 35,
+    marginTop:hp(2),
     shadowColor: "#000",
   shadowOffset: {
     width: 0,
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
   shadowOpacity: 0.25,
   shadowRadius: 3.84,
   elevation: 5,
+  backgroundColor:'white'
   },
-  icon:{marginTop:10,marginHorizontal:28},
-  txt:{textAlign:'center',fontWeight:'bold'}
+  icon:{marginTop:hp(2.5),alignSelf:'center'},
+  txt:{textAlign:'center',color:'black',marginTop:hp(0.5)}
 });
