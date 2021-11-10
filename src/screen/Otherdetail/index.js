@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
+import {Snackbar} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import BookmarkBtn from '../../Component/BookmarkBtn';
 import Line from '../../Component/Line';
@@ -13,6 +14,7 @@ import {useNavigation} from '@react-navigation/core';
 export default function Otherdetail({route}) {
   const Nav = useNavigation();
   const [Data, setData] = useState([]);
+  const [Visible, setVisible] = useState(false);
 
   const Get = async () => {
     firestore()
@@ -28,6 +30,17 @@ export default function Otherdetail({route}) {
     Get();
   }, []);
 
+  const addBook = () => {
+    firestore()
+      .collection('Wisata')
+      .doc(route.params.id)
+      .update({
+        Bookmark: true,
+      })
+      .then(() => setVisible(true))
+      .catch(e => console.log(e));
+  };
+
   return (
     <View>
       <Image source={{uri: Data.Gambar}} style={styles.img} />
@@ -38,7 +51,7 @@ export default function Otherdetail({route}) {
           <Text style={styles.txtSubJudul}>{Data.Kategori}</Text>
         </View>
         <View style={{marginTop: hp(23)}}>
-          <BookmarkBtn />
+          <BookmarkBtn onPress={addBook}/>
         </View>
       </View>
       <Text style={styles.txtDesc}>Deskripsi</Text>
@@ -48,6 +61,9 @@ export default function Otherdetail({route}) {
       <ScrollView>
         <Text style={styles.txtIsi}>{Data.Deskripsi}</Text>
       </ScrollView>
+      <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
+        Ditambahkan ke Bookmark
+      </Snackbar>
     </View>
   );
 }
@@ -84,5 +100,6 @@ const styles = StyleSheet.create({
     fontSize: hp(2),
     marginHorizontal: wp(5),
     textAlign: 'justify',
+    marginBottom:hp(15),
   },
 });

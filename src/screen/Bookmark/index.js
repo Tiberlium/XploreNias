@@ -79,7 +79,7 @@ export default function Bookmark({navigation}) {
   return (
     <View>
       <Text style={styles.txt}>Penanda</Text>
-      {Data.length != 0 ? <Exist /> : <Empty />}
+      {Data && Data.length ? <Exist /> : <Empty />}
     </View>
   );
 }
