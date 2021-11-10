@@ -4,6 +4,66 @@ import firestore from '@react-native-firebase/firestore';
 import BookmarkCard from '../../Component/BookmarkCard';
 
 export default function Bookmark({navigation}) {
+  const [Data, setData] = useState([]);
+  const isMounted = useRef(false);
+
+  const Get = () => {
+    let y = [];
+    firestore()
+      .collection('Wisata')
+      .where('Bookmark', '==', true)
+      .onSnapshot(querySnapshot => {
+        querySnapshot.docs.map(doc => {
+          y.push({
+            id: doc.id,
+            dat: doc.data(),
+          });
+        });
+        setData(y);
+      });
+  };
+
+  useEffect(() => {
+    Get();
+  }, []);
+
+  const Delete = id => {
+    firestore()
+      .collection('Wisata')
+      .doc(id)
+      .update({
+        Bookmark: false,
+      })
+      .then(() => {
+        Get();
+      });
+  };
+
+  const Nav = (kat, id) => {
+    kat === 'Tempat wisata'
+      ? navigation.navigate('Detail', {unique: id})
+      : navigation.navigate('Otherdetail', {id: id});
+  };
+
+  const Exist = () => {
+    return (
+      <ScrollView>
+        {Data.map(x => {
+          return (
+            <View key={x.id}>
+              <BookmarkCard
+                nama={x.dat.Nama}
+                kategori={x.dat.Kategori}
+                gambar={x.dat.Gambar}
+                onHapus={() => Delete(x.id)}
+                onPress={() => Nav(x.dat.Kategori, x.id)}
+              />
+            </View>
+          );
+        })}
+      </ScrollView>
+    );
+  };
 
   const Empty = () => {
     return (
@@ -16,12 +76,10 @@ export default function Bookmark({navigation}) {
     );
   };
 
- 
-
   return (
     <View>
       <Text style={styles.txt}>Penanda</Text>
-      <Empty/>
+      {Data.length != 0 ? <Exist /> : <Empty />}
     </View>
   );
 }

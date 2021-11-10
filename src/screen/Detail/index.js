@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState, useRef} from 'react';
 import {View, Image, StyleSheet, ScrollView} from 'react-native';
-import {Headline, Subheading, Paragraph} from 'react-native-paper';
+import {Headline, Subheading, Paragraph, Snackbar} from 'react-native-paper';
 import BackButton from '../../Component/BackButton';
 import MapButton from '../../Component/MapButton';
 import BookmarkBtn from '../../Component/BookmarkBtn';
@@ -16,6 +16,7 @@ export default function Detail({route}) {
   const Nav = useNavigation();
   const isMounted = useRef(false);
   const [Data, setData] = useState({});
+  const [Visible, setVisible] = useState(false);
 
   function Get() {
     const A = firestore().collection('Wisata').doc(route.params.unique).get();
@@ -31,6 +32,17 @@ export default function Detail({route}) {
     Get();
     return () => (isMounted.current = false);
   }, []);
+
+  const Addbook = () => {
+    firestore()
+      .collection('Wisata')
+      .doc(route.params.unique)
+      .update({
+        Bookmark: true,
+      })
+      .then(() => setVisible(true))
+      .catch(e => console.log(e));
+  };
 
   return (
     <View>
@@ -64,7 +76,10 @@ export default function Detail({route}) {
             })
           }
         />
-        <BookmarkBtn />
+        <BookmarkBtn onPress={Addbook} />
+        <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
+          Ditambahkan ke Bookmark
+        </Snackbar>
       </View>
     </View>
   );
@@ -84,7 +99,7 @@ const styles = StyleSheet.create({
     width: wp(60),
     borderRadius: 20,
     alignSelf: 'center',
-    padding: 10,
+    padding: 12,
     marginTop: hp(30),
     elevation: 5,
   },
