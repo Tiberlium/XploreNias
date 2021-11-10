@@ -4,6 +4,7 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Fontisto';
 import MapCard from '../../Component/MapCard';
 import BackButton from '../../Component/BackButton';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 export default function Map({route,navigation}) {
 
@@ -33,5 +34,5 @@ export default function Map({route,navigation}) {
 
 const styles = StyleSheet.create({
   map: {...StyleSheet.absoluteFillObject},
-  mapCrd: {position: 'absolute', marginHorizontal: 10, marginTop: 470},
+  mapCrd: {position: 'absolute', marginHorizontal: 10, marginTop: hp('70')},
 });

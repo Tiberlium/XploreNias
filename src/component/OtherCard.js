@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 export default function OtherCard({onPress,Gambar,Judul,Kategori}) {
   return (
@@ -20,11 +21,11 @@ export default function OtherCard({onPress,Gambar,Judul,Kategori}) {
 
 const styles = StyleSheet.create({
   img: {
-    width: 350,
-    height: 200,
+    width: wp(90),
+    height: hp(22),
     borderRadius: 20,
     alignSelf: 'center',
-    marginVertical: 40,
+    marginVertical: wp(10),
   },
   wrap:{marginLeft:50,marginTop:-100},
   txtJudul:{fontWeight:'bold',fontSize:20,color:'white'},

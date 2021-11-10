@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import {Card, Title, Paragraph, Subheading} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Feather';
+import {View, StyleSheet, Image} from 'react-native';
+import { Title, Paragraph, Subheading} from 'react-native-paper';
+import {heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
+
 
 export default function MapCard({gambar,nama,kecamatan,kabupaten}) {
   return (
@@ -10,10 +11,10 @@ export default function MapCard({gambar,nama,kecamatan,kabupaten}) {
         source={{uri:gambar}}
         style={styles.gambar}
       />
-      <View style={{marginTop: 30}}>
+      <View style={styles.wrapTxt}>
         <Title style={styles.txt}>{nama}</Title>
         <Subheading style={styles.sub}>Tempat Wisata</Subheading>
-        <Paragraph style={styles.paragrap}>{kecamatan},{kabupaten}</Paragraph>
+        <Paragraph style={styles.paragrap}>{kecamatan}, {kabupaten}</Paragraph>
       </View>
     </View>
   );
@@ -21,27 +22,24 @@ export default function MapCard({gambar,nama,kecamatan,kabupaten}) {
 
 const styles = StyleSheet.create({
   wrap: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 20,
+    display:'flex',
+    flexDirection:'row',
     borderColor: 'black',
     borderWidth: 0.5,
-    height: 170,
-    width: 370,
+    height: hp(25),
+    width: wp(95),
     borderRadius: 20,
     alignSelf: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#333333',
     elevation: 10,
   },
-  gambar: {height: 120, width: 120, borderRadius: 25, marginTop: 20},
+  gambar: {height: hp(17), width: wp(35), borderRadius: 25, marginTop: hp(3.5),marginLeft:wp(5)},
+  wrapTxt:{marginLeft:wp(5),marginTop:hp(4)},
   txt: {
-    fontSize: 25,
+    fontSize: hp(3.5),
     fontWeight: 'bold',
-    color: 'black',
-    flexWrap: 'wrap',
-    marginBottom: 10,
+    color: 'white',
   },
-  sub: {marginBottom: 10, fontWeight: 'bold', color: 'black'},
-  paragrap: {fontSize: 15,},
+  sub:  {fontWeight: 'bold', color: 'white',fontSize:hp(2.5)},
+  paragrap: {fontSize: hp(2),fontWeight:'200',color:'white',marginTop:hp(3.5)},
 });
