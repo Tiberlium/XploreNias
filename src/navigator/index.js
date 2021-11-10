@@ -14,6 +14,7 @@ import {
   Other,
 } from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { heightPercentageToDP as hp ,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -25,16 +26,7 @@ const Main = () => {
         name="Dashboard"
         component={Dashboard}
         options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Other"
-        component={Other}
-      />
-      <Stack.Screen
-        name="Otherdetail"
-        component={Otherdetail}
-        options={{headerShown: false}}
-      />
+      />    
       <Stack.Screen
         name="Search"
         component={Search}
@@ -72,9 +64,9 @@ export default function Navigator() {
         component={Main}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused, color}) => {
+          tabBarIcon: ({focused}) => {
             let iconName = focused ? 'home' : 'home-outline';
-            return <Icon name={iconName} size={30} color={color} />;
+            return <Icon name={iconName} size={30} color="#505050" />;
           },
         }}
       />
@@ -83,9 +75,9 @@ export default function Navigator() {
         component={Bookmark}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused, color}) => {
+          tabBarIcon: ({focused}) => {
             let iconName = focused ? 'bookmarks' : 'bookmarks-outline';
-            return <Icon name={iconName} size={30} color={color} />;
+            return <Icon name={iconName} size={30} color="#505050" />;
           },
         }}
       />
@@ -94,9 +86,9 @@ export default function Navigator() {
         component={Main3}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused, color}) => {
+          tabBarIcon: ({focused}) => {
             let iconName = focused ? 'person-circle' : 'person-circle-outline';
-            return <Icon name={iconName} size={30} color={color} />;
+            return <Icon name={iconName} size={30} color="#505050" />;
           },
         }}
       />
@@ -105,12 +97,11 @@ export default function Navigator() {
 }
 
 const style = {
-  bottom: 10,
-  marginHorizontal: 20,
-  height: 60,
+  bottom: hp(1),
+  marginHorizontal: wp(5),
+  height: hp(8),
   borderRadius: 20,
-  width: 350,
+  width: wp(90),
   elevation: 5,
   borderWidth: 0.5,
-  borderColor: 'black',
 };

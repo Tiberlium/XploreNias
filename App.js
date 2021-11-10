@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer,DefaultTheme} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   Login,
@@ -8,12 +8,10 @@ import {
   Intro,
   Detail,
   Splash,
+  Otherdetail,
+  Other,
 } from './src/Screen';
 import Navigator from './src/Navigator';
-
-
-
-
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +19,7 @@ const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background:'white'
+    background: 'white',
   },
 };
 
@@ -34,32 +32,42 @@ export default function App() {
           component={Splash}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Intro"
           component={Intro}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{headerShown: false}}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="Register"
           component={Register}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Passrecovery"
           component={Passrecovery}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Detail"
           component={Detail}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
+          name="Otherdetail"
+          component={Otherdetail}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Other"
+          component={Other}
+          options={({route}) => ({title: route.params.col})}
+        />
+        <Stack.Screen
           name="Navigator"
           component={Navigator}
           options={{headerShown: false}}
