@@ -7,7 +7,7 @@ export default function BackButton({onPress}) {
   return (
     <View>
       <TouchableOpacity style={styles.btn} onPress={onPress}>
-        <Icon name="chevron-left" size={40} style={styles.icon} color="black" />
+        <Icon name="chevron-left" size={40} style={styles.icon} color="white" />
       </TouchableOpacity>
     </View>
   );
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     height: hp(6.5),
     borderRadius: 25,
     margin:20,
-    backgroundColor:'white',
+    backgroundColor:'#333333',
     elevation:5,
   },
   icon: {marginTop:hp(0.5),marginLeft:wp(0.5)},

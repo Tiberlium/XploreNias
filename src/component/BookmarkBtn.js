@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet,TouchableOpacity} from 'react-native';
+import {View, StyleSheet,TouchableOpacity} from 'react-native';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function BookmarkBtn({onPress}) {
@@ -14,14 +15,14 @@ export default function BookmarkBtn({onPress}) {
 
 const styles = StyleSheet.create({
   bookBtn: {
-    height: 60,
-    width: 60,
+    height: hp(8),
+    width: wp(15.5),
     borderWidth: 0.5,
     borderColor: 'black',
-    backgroundColor: '#077FE9',
-    borderRadius: 20,
+    backgroundColor: '#333333',
+    borderRadius: 30,
     elevation: 5,
-    marginHorizontal: 15,
+    marginHorizontal: wp(5),
   },
-  bookIcon: {marginTop: 13, marginLeft: 15},
+  bookIcon: {marginTop: hp(1.8), marginLeft: wp(4)},
 });

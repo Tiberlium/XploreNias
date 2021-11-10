@@ -1,18 +1,38 @@
-import React,{useEffect,useState,useRef} from 'react'
-import { View, Text,TextInput,StyleSheet,TouchableOpacity } from 'react-native'
+import React from 'react';
+import {View, TextInput, StyleSheet} from 'react-native';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
-
-export default function SearchBars({onChange,value}) {
-    return (
-        <View style={styles.wrap}>
-            <TextInput placeholder="Pencarian" placeholderTextColor="black" style={styles.txtInput} onChangeText={onChange} value={value}/>
-        </View>
-    )
+export default function SearchBars({onChange, value}) {
+  return (
+    <View style={styles.wrap}>
+      <TextInput
+        style={styles.txtInput}
+        placeholder="Pencarian"
+        placeholderTextColor="white"
+        onChangeText={onChange}
+        value={value}
+      />
+    </View>
+  );
 }
 
-
 const styles = StyleSheet.create({
-    txtInput:{borderWidth:1,borderColor:'black',width:350,borderRadius:30,backgroundColor:'white',elevation:5,fontSize:15,height:50,alignSelf:'center',color:'black',fontWeight:'bold'},
-})
-
-
+  txtInput: {
+    borderColor: 'black',
+    width: wp(85),
+    borderRadius: 30,
+    backgroundColor: 'white',
+    elevation: 5,
+    fontSize: 15,
+    height: hp(7),
+    alignSelf: 'center',
+    color: 'black',
+    fontWeight: 'bold',
+    marginTop: hp(2),
+    elevation: 5,
+    backgroundColor: '#C8CBCD',
+  },
+});

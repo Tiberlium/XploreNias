@@ -2,6 +2,8 @@ import React, {useEffect, useState, useRef} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import FullCard from '../../Component/FullCard';
+import BackButton from '../../Component/BackButton';
+import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 export default function All({navigation}) {
   const [Data, setData] = useState([]);
@@ -34,7 +36,10 @@ export default function All({navigation}) {
 
   return (
     <View>
-      <Text style={styles.txt}>Semua Tempat</Text>
+      <View style={{display:'flex',flexDirection:'row'}}>
+        <BackButton onPress={()=>navigation.goBack()} />
+        <Text style={styles.txt}>Semua Tempat</Text>
+      </View>
       <ScrollView>
         {Data.map(x => {
           return (
@@ -55,5 +60,5 @@ export default function All({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  txt: {fontWeight: 'bold', fontSize: 30, color: 'black', padding: 30},
+  txt: {fontWeight: 'bold', fontSize: 30, color: 'black',marginTop:hp(3)},
 });

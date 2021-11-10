@@ -10,6 +10,9 @@ import {
   Splash,
   Otherdetail,
   Other,
+  Search,
+  Map,
+  All
 } from './src/Screen';
 import Navigator from './src/Navigator';
 
@@ -66,6 +69,21 @@ export default function App() {
           name="Other"
           component={Other}
           options={({route}) => ({title: route.params.col})}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Map"
+          component={Map}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="All"
+          component={All}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="Navigator"

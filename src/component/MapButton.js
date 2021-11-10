@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Subheading} from 'react-native-paper';
+import { heightPercentageToDP as hp ,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function MapButton({onPress, onClick}) {
+export default function MapButton({onPress}) {
   return (
     <TouchableOpacity style={styles.btn} onPress={onPress}>
       <Subheading style={styles.txt}>Lihat Lokasi</Subheading>
@@ -21,28 +22,26 @@ export default function MapButton({onPress, onClick}) {
 
 const styles = StyleSheet.create({
   btn: {
-    height: 60,
-    width: 200,
+    height: hp(8),
+    width: wp(50),
     borderColor: 'black',
     borderWidth: 0.5,
-    borderRadius: 20,
+    borderRadius: 30,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#077FE9',
+    backgroundColor: '#333333',
     elevation: 5,
-    marginHorizontal: 15,
+    marginHorizontal: wp(2),
   },
   wrapIcon: {
-    height: 40,
-    width: 40,
-    borderColor: 'black',
-    borderWidth: 0.5,
+    height: hp(5.5),
+    width: wp(10.5),
     borderRadius: 25,
-    marginTop: 10,
+    marginTop: hp(1.2),
     backgroundColor: 'white',
-    marginRight: 10,
+    marginRight: wp(4),
   },
-  icon: {marginLeft: 3, marginTop: 3},
-  txt: {color: 'white', fontWeight: 'bold', marginTop: 15, marginLeft: 30},
+  icon: {marginLeft: wp(1), marginTop: hp(0.5)},
+  txt: {color: 'white', fontWeight: 'bold', marginTop: hp(2), marginLeft: wp(7)},
 });

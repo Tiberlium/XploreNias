@@ -27,13 +27,6 @@ const Main = () => {
         component={Dashboard}
         options={{headerShown: false}}
       />    
-      <Stack.Screen
-        name="Search"
-        component={Search}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen name="Map" component={Map} options={{headerShown: false}} />
-      <Stack.Screen name="All" component={All} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };
