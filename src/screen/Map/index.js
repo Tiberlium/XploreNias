@@ -3,8 +3,8 @@ import {View, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Fontisto';
 import MapCard from '../../Component/MapCard';
-import BackButton from '../../Component/BackButton';
 import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import BackButtonMaps from '../../Component/BackButtonMaps';
 
 export default function Map({route,navigation}) {
 
@@ -24,7 +24,7 @@ export default function Map({route,navigation}) {
           <Icon name="map-marker-alt" size={40} color="red" />
         </Marker>
       </MapView>
-      <BackButton onPress={()=>navigation.goBack()}/>
+      <BackButtonMaps onPress={()=>navigation.goBack()}/>
       <View style={styles.mapCrd}>
         <MapCard nama={itemNm} kecamatan={itemKec} kabupaten={itemKab} gambar={itemGbr} />
       </View>
