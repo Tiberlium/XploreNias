@@ -100,7 +100,7 @@ function Category() {
 export default function Dashboard({navigation}) {
   return (
     <View>
-      <Profile onPress={() => navigation.navigate('Main3')} />
+      <Profile onPress={() => navigation.navigate('User')} />
       <Text style={styles.txtDiscovery0}>Jelajahi</Text>
       <Text style={styles.txtDiscovery1}>Keindahan Nias</Text>
       <SearchBtn />

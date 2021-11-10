@@ -1,49 +1,14 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   Bookmark,
   Dashboard,
   User,
-  Search,
-  All,
-  Map,
-  About,
-  Otherdetail,
-  Info,
-  Other,
 } from '../Screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { heightPercentageToDP as hp ,widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
-const Main = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
-        options={{headerShown: false}}
-      />    
-    </Stack.Navigator>
-  );
-};
-
-const Main3 = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="User"
-        component={User}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen name="Info" component={Info} />
-      <Stack.Screen name="About" component={About} />
-    </Stack.Navigator>
-  );
-};
 
 export default function Navigator() {
   return (
@@ -53,8 +18,8 @@ export default function Navigator() {
         tabBarStyle: style,
       }}>
       <Tab.Screen
-        name="Main"
-        component={Main}
+        name="Dashboard"
+        component={Dashboard}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => {
@@ -75,8 +40,8 @@ export default function Navigator() {
         }}
       />
       <Tab.Screen
-        name="Main3"
-        component={Main3}
+        name="User"
+        component={User}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => {

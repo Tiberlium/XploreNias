@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet,TouchableOpacity } from 'react-native'
+import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Icon from 'react-native-vector-icons/Feather'
 
 
@@ -15,11 +16,11 @@ export default function Logoutbtn({onPress}) {
 
 
 const styles = StyleSheet.create({
-    btn:{ width: 100,
-        height: 50,
+    btn:{ width: wp(40),
+        height: hp(7),
         backgroundColor: '#F94C4C',
-        borderRadius: 15,
+        borderRadius: 30,
         alignSelf:'center',
         marginVertical: 20,},
-    icon:{marginTop:10,alignSelf:'center'}
+    icon:{marginTop:hp(1.8),alignSelf:'center'}
 })

@@ -1,8 +1,17 @@
-import React, {useState, useEffect,} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
+import BookmarkBtn from '../../Component/BookmarkBtn';
+import Line from '../../Component/Line';
+import BackButton from '../../Component/BackButton';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/core';
 
 export default function Otherdetail({route}) {
+  const Nav = useNavigation();
   const [Data, setData] = useState([]);
 
   const Get = async () => {
@@ -21,53 +30,59 @@ export default function Otherdetail({route}) {
 
   return (
     <View>
-      <Image
-        source={{uri: Data.Gambar}}
-        style={styles.img}
-      />
-      <View style={styles.wrap}>
-        <Text style={styles.txtJudul}>{Data.Nama}</Text>
-        <Text style={styles.txtSubJudul}>{Data.Kategori}</Text>
+      <Image source={{uri: Data.Gambar}} style={styles.img} />
+      <BackButton onPress={() => Nav.goBack()} />
+      <View style={{display: 'flex', flexDirection: 'row'}}>
+        <View style={styles.wrap}>
+          <Text style={styles.txtJudul}>{Data.Nama}</Text>
+          <Text style={styles.txtSubJudul}>{Data.Kategori}</Text>
+        </View>
+        <View style={{marginTop: hp(23)}}>
+          <BookmarkBtn />
+        </View>
       </View>
       <Text style={styles.txtDesc}>Deskripsi</Text>
-      <Text style={styles.txtIsi}>
-        {Data.Deskripsi}
-      </Text>
+      <View style={{marginLeft: wp(5)}}>
+        <Line />
+      </View>
+      <ScrollView>
+        <Text style={styles.txtIsi}>{Data.Deskripsi}</Text>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   img: {
-    height: 300,
-    width: 400,
+    height: hp(40),
+    width: wp(100),
     alignSelf: 'center',
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
+    position: 'absolute',
   },
   wrap: {
-    marginLeft: 20,
-    borderWidth: 0.5,
-    width: 250,
+    marginLeft: wp(8),
+    width: wp(60),
     padding: 10,
-    borderRadius: 10,
-    marginTop: -40,
-    backgroundColor: 'white',
+    borderRadius: 20,
+    marginTop: hp(23),
+    backgroundColor: '#333333',
   },
-  txtJudul: {fontWeight: 'bold', fontSize: 20, color: 'black'},
-  txtSubJudul: {fontWeight: 'bold', fontSize: 15, color: 'black'},
+  txtJudul: {fontWeight: 'bold', fontSize: 20, color: 'white'},
+  txtSubJudul: {fontWeight: '200', fontSize: 15, color: 'white'},
   txtDesc: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: hp(3),
     color: 'black',
-    marginLeft: 25,
-    marginTop: 30,
-    marginBottom: 20,
+    marginLeft: wp(5),
+    marginTop: hp(2),
+    marginBottom: hp(1),
   },
   txtIsi: {
-    fontWeight: 'bold',
     color: 'black',
-    fontSize: 15,
-    marginLeft: 25,
+    fontSize: hp(2),
+    marginHorizontal: wp(5),
+    textAlign: 'justify',
   },
 });

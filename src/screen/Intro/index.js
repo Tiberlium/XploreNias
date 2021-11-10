@@ -41,8 +41,8 @@ export default function Intro({navigation}) {
 const styles = StyleSheet.create({
   wrap: {marginVertical: hp(5), marginLeft: wp(5)},
   txtTitle: {fontSize: 45, color: '#ffff', fontWeight: 'bold'},
-  txtSub0: {fontSize: 20, color: '#ffff', margin: 10},
-  txtSub1: {fontSize: 20, color: '#ffff', marginLeft: 10},
+  txtSub0: {fontSize: 20, color: '#ffff', margin: 10,fontWeight:'200'},
+  txtSub1: {fontSize: 20, color: '#ffff', marginLeft: 10,fontWeight:'200'},
   btn: {
     width: wp(16),
     height: hp(8),

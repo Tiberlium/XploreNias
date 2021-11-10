@@ -40,7 +40,7 @@ export default function Detail({route}) {
       <View style={styles.wrapjdl}>
         <Headline style={styles.txt0}>{Data.Nama}</Headline>
         <Subheading style={styles.txt1}>
-          {Data.Kecamatan},{Data.Kabupaten}
+          {Data.Kecamatan}, {Data.Kabupaten}
         </Subheading>
       </View>
 

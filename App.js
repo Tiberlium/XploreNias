@@ -12,7 +12,9 @@ import {
   Other,
   Search,
   Map,
-  All
+  All,
+  Info,
+  About,
 } from './src/Screen';
 import Navigator from './src/Navigator';
 
@@ -85,6 +87,8 @@ export default function App() {
           component={All}
           options={{headerShown: false}}
         />
+        <Stack.Screen name="Info" component={Info} />
+        <Stack.Screen name="About" component={About} />
         <Stack.Screen
           name="Navigator"
           component={Navigator}
