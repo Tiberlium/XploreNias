@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   img: {
     height: hp(7),
     width: wp(14),
-    borderRadius: 20,
+    borderRadius: 25,
     marginTop: hp(2.5),
     marginLeft: wp(2),
     marginRight: wp(5),
