@@ -16,8 +16,8 @@ export default function BackButton({onPress}) {
 const styles = StyleSheet.create({
   btn: {
     borderWidth: 0.5,
-    width: wp(13),
-    height: hp(6.5),
+    width: 50,
+    height: 50,
     borderRadius: 25,
     margin:20,
     backgroundColor:'#333333',

@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   btn: {
     borderColor: 'black',
     borderWidth: 0.5,
-    width: wp(13),
-    height: hp(7),
+    width: 50,
+    height: 50,
     borderRadius: 25,
     backgroundColor:'#333333',
     elevation:5,

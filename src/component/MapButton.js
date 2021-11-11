@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     marginHorizontal: wp(2),
   },
   wrapIcon: {
-    height: hp(5.5),
-    width: wp(10.5),
+    height: 45,
+    width: 45,
     borderRadius: 25,
-    marginTop: hp(1.2),
+    marginTop: hp(1),
     backgroundColor: 'white',
-    marginRight: wp(4),
+    marginRight: wp(2.5),
   },
-  icon: {marginLeft: wp(1), marginTop: hp(0.5)},
+  icon: {alignSelf:'center', marginTop: hp(0.7)},
   txt: {color: 'white', fontWeight: 'bold', marginTop: hp(2), marginLeft: wp(7)},
 });

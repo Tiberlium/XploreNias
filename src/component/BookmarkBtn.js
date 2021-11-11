@@ -15,8 +15,8 @@ export default function BookmarkBtn({onPress}) {
 
 const styles = StyleSheet.create({
   bookBtn: {
-    height: hp(8),
-    width: wp(15.5),
+    height: 60,
+    width: 60,
     borderWidth: 0.5,
     borderColor: 'black',
     backgroundColor: '#333333',
