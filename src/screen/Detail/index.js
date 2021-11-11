@@ -34,57 +34,57 @@ export default function Detail({route}) {
   }, []);
 
   const Addbook = () => {
-    firestore()
-      .collection('Wisata')
-      .doc(route.params.unique)
-      .update({
-        Bookmark: true,
-      })
-     setVisible(true);
+    firestore().collection('Wisata').doc(route.params.unique).update({
+      Bookmark: true,
+    });
+    setVisible(true);
   };
 
   return (
-    <View>
-      <Image source={{uri: Data.Gambar}} style={styles.img} />
-      <BackButton onPress={() => Nav.goBack()} />
+    <View style={styles.dis}>
+      <View>
+        <Image source={{uri: Data.Gambar}} style={styles.img} />
+        <BackButton onPress={() => Nav.goBack()} />
 
-      <View style={styles.wrapjdl}>
-        <Headline style={styles.txt0}>{Data.Nama}</Headline>
-        <Subheading style={styles.txt1}>
-          {Data.Kecamatan}, {Data.Kabupaten}
-        </Subheading>
-      </View>
+        <View style={styles.wrapjdl}>
+          <Headline style={styles.txt0}>{Data.Nama}</Headline>
+          <Subheading style={styles.txt1}>
+            {Data.Kecamatan}, {Data.Kabupaten}
+          </Subheading>
+        </View>
 
-      <View style={styles.wrap}>
-        <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
-        <Line />
-        <ScrollView>
-          <Paragraph style={styles.txt2}>{Data.Deskripsi}</Paragraph>
-        </ScrollView>
+        <View style={styles.wrap}>
+          <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
+          <Line />
+          <ScrollView>
+            <Paragraph style={styles.txt2}>{Data.Deskripsi}</Paragraph>
+          </ScrollView>
+        </View>
+        <View style={styles.wrapBtn}>
+          <MapButton
+            onPress={() =>
+              Nav.navigate('Map', {
+                itemGbr: Data.Gambar,
+                itemKec: Data.Kecamatan,
+                itemKab: Data.Kabupaten,
+                itemL: Data.Latitude,
+                itemLo: Data.Longitude,
+                itemNm: Data.Nama,
+              })
+            }
+          />
+          <BookmarkBtn onPress={Addbook} />
+        </View>
       </View>
-      <View style={styles.wrapBtn}>
-        <MapButton
-          onPress={() =>
-            Nav.navigate('Map', {
-              itemGbr: Data.Gambar,
-              itemKec: Data.Kecamatan,
-              itemKab: Data.Kabupaten,
-              itemL: Data.Latitude,
-              itemLo: Data.Longitude,
-              itemNm: Data.Nama,
-            })
-          }
-        />
-        <BookmarkBtn onPress={Addbook} />
-        <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
-          Ditambahkan ke Bookmark
-        </Snackbar>
-      </View>
+      <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
+        Ditambahkan ke Bookmark
+      </Snackbar>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  dis: {flex: 1, justifyContent: 'space-between'},
   img: {
     height: hp(48),
     width: wp(100),

@@ -83,7 +83,7 @@ export default function Register({navigation}) {
         <Logobtn
           source={require('../../Asset/Image/google.png')}
           onPress={() =>
-            onGoogleButtonPress().then(() => navigation.navigate('Dashboard'))
+            onGoogleButtonPress().then(() => navigation.navigate('Navigator'))
           }
         />
         <Logobtn source={require('../../Asset/Image/facebook.png')} />
