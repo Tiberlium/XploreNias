@@ -14,12 +14,15 @@ export default function Bookmark({navigation}) {
       .where('Bookmark', '==', true)
       .onSnapshot(querySnapshot => {
         querySnapshot.docs.map(doc => {
-          y.push({
-            id: doc.id,
-            dat: doc.data(),
-          });
+          if (!y.some(o => o.id === doc.id)) {
+            y.push({
+              id: doc.id,
+              dat: doc.data(),
+            });
+          }
         });
         setData(y);
+        y = [];
       });
   };
 
@@ -35,6 +38,9 @@ export default function Bookmark({navigation}) {
         Bookmark: false,
       })
       .then(() => {
+        const removeIndex = Data.findIndex(item => item.id === id);
+        Data.splice(removeIndex, 1);
+        setData(Data);
         Get();
       });
   };
