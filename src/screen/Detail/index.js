@@ -52,28 +52,29 @@ export default function Detail({route}) {
             {Data.Kecamatan}, {Data.Kabupaten}
           </Subheading>
         </View>
-
-        <View style={styles.wrap}>
-          <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
-          <Line />
-          <ScrollView>
-            <Paragraph style={styles.txt2}>{Data.Deskripsi}</Paragraph>
-          </ScrollView>
-        </View>
-        <View style={styles.wrapBtn}>
-          <MapButton
-            onPress={() =>
-              Nav.navigate('Map', {
-                itemGbr: Data.Gambar,
-                itemKec: Data.Kecamatan,
-                itemKab: Data.Kabupaten,
-                itemL: Data.Latitude,
-                itemLo: Data.Longitude,
-                itemNm: Data.Nama,
-              })
-            }
-          />
-          <BookmarkBtn onPress={Addbook} />
+        <View style={styles.inline}>
+          <View style={styles.wrap}>
+            <Subheading style={styles.txtWisata}>Tentang Wisata</Subheading>
+            <Line />
+            <ScrollView>
+              <Paragraph style={styles.txt2}>{Data.Deskripsi}</Paragraph>
+            </ScrollView>
+          </View>
+          <View style={styles.wrapBtn}>
+            <MapButton
+              onPress={() =>
+                Nav.navigate('Map', {
+                  itemGbr: Data.Gambar,
+                  itemKec: Data.Kecamatan,
+                  itemKab: Data.Kabupaten,
+                  itemL: Data.Latitude,
+                  itemLo: Data.Longitude,
+                  itemNm: Data.Nama,
+                })
+              }
+            />
+            <BookmarkBtn onPress={Addbook} />
+          </View>
         </View>
       </View>
       <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
@@ -86,7 +87,7 @@ export default function Detail({route}) {
 const styles = StyleSheet.create({
   dis: {flex: 1, justifyContent: 'space-between'},
   img: {
-    height: hp(48),
+    height: hp(45),
     width: wp(100),
     borderBottomRightRadius: 50,
     borderBottomLeftRadius: 50,
@@ -97,13 +98,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333',
     width: wp(60),
     borderRadius: 20,
-    alignSelf: 'center',
+    marginLeft: wp(5),
     padding: 12,
-    marginTop: hp(30),
+    marginTop: hp(25),
     elevation: 5,
   },
   txtWisata: {fontWeight: 'bold', color: 'black', fontSize: hp(3)},
-  wrap: {padding: 20, marginTop: hp(53), position: 'absolute'},
+  inline: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  wrap: {padding: 20, position: 'absolute'},
   txt0: {color: 'white', textAlign: 'justify', fontWeight: 'bold'},
   txt1: {color: 'white', textAlign: 'justify', fontWeight: '200'},
   txt2: {color: 'black', textAlign: 'justify'},
@@ -113,6 +119,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     position: 'absolute',
     alignSelf: 'center',
-    marginTop: hp(87),
+    marginTop: hp(40),
   },
 });

@@ -34,5 +34,5 @@ export default function Map({route,navigation}) {
 
 const styles = StyleSheet.create({
   map: {...StyleSheet.absoluteFillObject},
-  mapCrd: {position: 'absolute', marginHorizontal: 10, marginTop: hp('70')},
+  mapCrd: {position: 'absolute',alignSelf:'center', marginTop: hp('73')},
 });

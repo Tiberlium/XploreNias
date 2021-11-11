@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     marginTop: hp(1),
     elevation: 5,
   },
-  wrapBtn:{height:hp(6),width:wp(12),backgroundColor:'#333333',borderRadius:25,marginLeft:wp(2),marginTop:hp(1)},
-  icon:{marginLeft:wp(0.5)},
+  wrapBtn:{height:50,width:50,backgroundColor:'#333333',borderRadius:25,marginLeft:wp(2),marginTop:hp(0.8)},
+  icon:{marginLeft:wp(0.4),marginTop:hp(0.5)},
   txt: {
     fontSize: hp(2.5),
     color: 'black',

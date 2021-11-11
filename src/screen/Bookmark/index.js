@@ -14,17 +14,14 @@ export default function Bookmark({navigation}) {
       .where('Bookmark', '==', true)
       .onSnapshot(querySnapshot => {
         querySnapshot.docs.forEach(doc => {
-           if(!y.some(o => o.id === doc.id)){
-             y.push({
-               id : doc.id,
-               dat:doc.data(),
-             })
-           }
-           else{
-             return [];
-           }
+          if (!Data.some(Data => o.id === doc.id)) {
+            y.push({
+              id: doc.id,
+              dat: doc.data(),
+            });
+          }
+          setData(y);
         });
-        setData(y);
       });
   };
 
