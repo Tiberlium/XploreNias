@@ -40,8 +40,7 @@ export default function Detail({route}) {
       .update({
         Bookmark: true,
       })
-      .then(() => setVisible(true))
-      .catch(e => console.log(e));
+     setVisible(true);
   };
 
   return (

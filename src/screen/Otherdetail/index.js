@@ -37,30 +37,29 @@ export default function Otherdetail({route}) {
       .update({
         Bookmark: true,
       })
-      .then(() => setVisible(true))
-      .catch(e => console.log(e));
+    setVisible(true);
   };
 
   return (
-    <View>
-      <Image source={{uri: Data.Gambar}} style={styles.img} />
-      <BackButton onPress={() => Nav.goBack()} />
-      <View style={{display: 'flex', flexDirection: 'row'}}>
-        <View style={styles.wrap}>
-          <Text style={styles.txtJudul}>{Data.Nama}</Text>
-          <Text style={styles.txtSubJudul}>{Data.Kategori}</Text>
+    <View style={styles.dis}>
+      <View>
+        <Image source={{uri: Data.Gambar}} style={styles.img} />
+        <BackButton onPress={() => Nav.goBack()} />
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+          <View style={styles.wrap}>
+            <Text style={styles.txtJudul}>{Data.Nama}</Text>
+            <Text style={styles.txtSubJudul}>{Data.Kategori}</Text>
+          </View>
+          <View style={{marginTop: hp(23)}}>
+            <BookmarkBtn onPress={addBook} />
+          </View>
         </View>
-        <View style={{marginTop: hp(23)}}>
-          <BookmarkBtn onPress={addBook}/>
+        <Text style={styles.txtDesc}>Deskripsi</Text>
+        <View style={{marginLeft: wp(5)}}>
+          <Line />
         </View>
-      </View>
-      <Text style={styles.txtDesc}>Deskripsi</Text>
-      <View style={{marginLeft: wp(5)}}>
-        <Line />
-      </View>
-      <ScrollView>
         <Text style={styles.txtIsi}>{Data.Deskripsi}</Text>
-      </ScrollView>
+      </View>
       <Snackbar visible={Visible} onDismiss={() => setVisible(false)}>
         Ditambahkan ke Bookmark
       </Snackbar>
@@ -69,6 +68,7 @@ export default function Otherdetail({route}) {
 }
 
 const styles = StyleSheet.create({
+  dis:{flex:1,justifyContent:'space-between'},
   img: {
     height: hp(40),
     width: wp(100),
@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
     fontSize: hp(2),
     marginHorizontal: wp(5),
     textAlign: 'justify',
-    marginBottom:hp(15),
+    marginTop: hp(1),
   },
 });
