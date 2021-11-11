@@ -109,9 +109,9 @@ export default function Login({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  icon: {marginHorizontal: wp(33), width: wp(30), height: hp(16), marginVertical: hp(5)},
+  icon: {alignSelf:'center', width: 120, height: 120, marginVertical: hp(5)},
   txtTitle: {
-    marginHorizontal: wp(37),
+    textAlign:'center',
     padding: 10,
     fontWeight: 'bold',
   },
@@ -132,11 +132,11 @@ const styles = StyleSheet.create({
     borderWidth: 0.4,
     width: wp('80'),
     height: hp('8'),
-    marginHorizontal: wp(10),
+    alignSelf:'center',
     marginVertical: hp(1),
     backgroundColor: 'white',
     elevation: 5,
-    borderRadius: 25,
+    borderRadius: 40,
   },
   btn: {
     width: hp('25'),
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: hp(0.5),
   },
-  txtAtau:{fontSize:hp('2'),marginHorizontal:wp('32'),marginTop:hp(2)},
+  txtAtau:{fontSize:hp('2'),textAlign:'center',marginTop:hp(2)},
   txtUnlog: {fontSize: hp(2)},
   txtUnlogBtn: {fontSize:hp('2'),fontWeight:'bold',color:'black',marginLeft:wp(2)},
 });
