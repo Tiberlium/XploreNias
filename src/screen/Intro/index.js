@@ -28,7 +28,7 @@ export default function Intro({navigation}) {
           onPress={() => navigation.navigate('Login')}>
           <Icon
             name="chevron-right"
-            size={40}
+            size={50}
             color="white"
             style={styles.btnIcon}
           />
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
   txtSub0: {fontSize: 20, color: '#ffff', margin: 10,fontWeight:'200'},
   txtSub1: {fontSize: 20, color: '#ffff', marginLeft: 10,fontWeight:'200'},
   btn: {
-    width: wp(16),
-    height: hp(8),
+    width: 70,
+    height: 70,
     backgroundColor: '#DF4F30',
-    borderRadius: 40,
+    borderRadius: 35,
     alignSelf:'center',
     marginVertical: hp(50),
   },

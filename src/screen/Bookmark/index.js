@@ -5,7 +5,6 @@ import BookmarkCard from '../../Component/BookmarkCard';
 
 export default function Bookmark({navigation}) {
   const [Data, setData] = useState([]);
-  const isMounted = useRef(false);
 
   const Get = () => {
     let y = [];
@@ -13,15 +12,15 @@ export default function Bookmark({navigation}) {
       .collection('Wisata')
       .where('Bookmark', '==', true)
       .onSnapshot(querySnapshot => {
-        querySnapshot.docs.forEach(doc => {
-          if (!Data.some(Data => o.id === doc.id)) {
+        querySnapshot.docs.map(doc => {
+          if (!y.some(data => data.id === doc.id)) {
             y.push({
               id: doc.id,
               dat: doc.data(),
             });
           }
-          setData(y);
         });
+        setData(y);
       });
   };
 
@@ -30,18 +29,13 @@ export default function Bookmark({navigation}) {
   }, []);
 
   const Delete = id => {
-    firestore()
-      .collection('Wisata')
-      .doc(id)
-      .update({
-        Bookmark: false,
-      })
-      .then(() => {
-        const removeIndex = Data.findIndex(item => item.id === id);
-        Data.splice(removeIndex, 1);
-        setData(Data);
-        Get();
-      });
+    firestore().collection('Wisata').doc(id).update({
+      Bookmark: false,
+    });
+    const removeIndex = Data.findIndex(item => item.id === id);
+    Data.splice(removeIndex, 1);
+    setData(Data);
+    Get();
   };
 
   const Nav = (kat, id) => {
