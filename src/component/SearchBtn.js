@@ -9,7 +9,7 @@ export default function SearchBtn() {
   return (
     <View style={styles.wrap}>
       <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Search')}>       
-          <Icon name="search" size={25} color="black"/>
+          <Icon name="search" size={25} color="#6e6e6dff"/>
           <Text style={styles.txt}>Pencarian</Text>
       </TouchableOpacity>
     </View>
@@ -19,6 +19,6 @@ export default function SearchBtn() {
 
 const styles = StyleSheet.create({
   wrap:{padding:10,alignSelf:'center',marginTop:hp(1),},
-  btn:{height:hp(6),width:wp(90),padding:10,borderRadius:20,elevation:5,backgroundColor:'#C8CBCD'},
-  txt:{marginTop:hp(-3),marginLeft:wp(10),color:'white'},
+  btn:{height:hp(6),width:wp(90),padding:10,borderRadius:20,elevation:5,backgroundColor:'#EBD4D4'},
+  txt:{marginTop:hp(-3),marginLeft:wp(10),color:'#605656'},
 })

@@ -11,7 +11,7 @@ export default function SearchBars({onChange, value}) {
       <TextInput
         style={styles.txtInput}
         placeholder="Pencarian"
-        placeholderTextColor="white"
+        placeholderTextColor="#605656"
         onChangeText={onChange}
         value={value}
       />
@@ -24,15 +24,14 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     width: wp(85),
     borderRadius: 30,
-    backgroundColor: 'white',
     elevation: 5,
     fontSize: 15,
     height: hp(7),
     alignSelf: 'center',
-    color: 'black',
+    color: '#605656',
     fontWeight: 'bold',
     marginTop: hp(2),
     elevation: 5,
-    backgroundColor: '#C8CBCD',
+    backgroundColor: '#EBD4D4',
   },
 });

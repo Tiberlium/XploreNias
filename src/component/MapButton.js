@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     height: hp(8),
     width: wp(50),
     borderColor: 'black',
-    borderWidth: 0.5,
     borderRadius: 30,
     display: 'flex',
     flexDirection: 'row',
