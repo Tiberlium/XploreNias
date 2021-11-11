@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   shadowOpacity: 0.25,
   shadowRadius: 3.84,
   elevation: 5,
-  backgroundColor:'white'
+  backgroundColor:'white',
   },
   icon:{marginTop:hp(2.5),alignSelf:'center'},
   txt:{textAlign:'center',color:'black',marginTop:hp(0.5)}

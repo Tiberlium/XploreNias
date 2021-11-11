@@ -32,9 +32,8 @@ export default function Bookmark({navigation}) {
     firestore().collection('Wisata').doc(id).update({
       Bookmark: false,
     });
-    const removeIndex = Data.findIndex(item => item.id === id);
-    Data.splice(removeIndex, 1);
-    setData(Data);
+    const removeIndex = Data.findIndex(i => i.id === id);
+    Data.splice(removeIndex,1);
     Get();
   };
 
