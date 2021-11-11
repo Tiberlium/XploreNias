@@ -8,21 +8,13 @@ export default function Bookmark({navigation}) {
   const isMounted = useRef(false);
 
   const Get = () => {
-    let y = [];
     firestore()
       .collection('Wisata')
       .where('Bookmark', '==', true)
       .onSnapshot(querySnapshot => {
-        querySnapshot.docs.map(doc => {
-          if (!y.some(o => o.id === doc.id)) {
-            y.push({
-              id: doc.id,
-              dat: doc.data(),
-            });
-          }
+        querySnapshot.docs.forEach(doc => {
+          setData(Data => [...Data, {id: doc.id, dat: doc.data()}]);
         });
-        setData(y);
-        y = [];
       });
   };
 

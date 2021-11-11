@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet,Text} from 'react-native';
 import {Card} from 'react-native-paper';
-import { heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function CategoryBtn({name,title,onPress,color}) {
@@ -20,8 +20,8 @@ export default function CategoryBtn({name,title,onPress,color}) {
 const styles = StyleSheet.create({
   btn: {
     borderWidth:0.5,
-    height:hp(9.5),
-    width: wp(19),
+    height:70,
+    width: 70,
     borderRadius: 35,
     marginTop:hp(2),
     shadowColor: "#000",

@@ -4,6 +4,7 @@ import SearchBars from '../../Component/SearchBars';
 import firestore from '@react-native-firebase/firestore';
 import ResultCard from '../../Component/ResultCard';
 import BackButton from '../../Component/BackButton';
+import Line from '../../Component/Line';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -41,11 +42,14 @@ export default function Search({navigation}) {
   return (
     <View>
       <View style={Styles.wrap}>
-        <BackButton onPress={()=>navigation.goBack()}/>
+        <BackButton onPress={() => navigation.goBack()} />
         <Text style={Styles.txt}>Pencarian</Text>
       </View>
       <SearchBars onChange={setQuery} value={Query} />
       <Text style={Styles.txthasil}>Hasil</Text>
+      <View style={Styles.line}>
+        <Line />
+      </View>
       <ScrollView>
         {hasil
           .filter(x => x.dat.Nama.toLowerCase().match(Query.toLowerCase()))
@@ -69,7 +73,15 @@ export default function Search({navigation}) {
 }
 
 const Styles = StyleSheet.create({
-  wrap:{display:'flex',flexDirection:'row'},
-  txt: {fontWeight: 'bold', fontSize: 30, color: 'black',marginTop:hp(3)},
-  txthasil: {fontWeight: 'bold', fontSize: hp(3), color: 'black', margin: 30},
+  wrap: {display: 'flex', flexDirection: 'row'},
+  txt: {fontWeight: 'bold', fontSize: 30, color: 'black', marginTop: hp(3)},
+  txthasil: {
+    fontWeight: 'bold',
+    fontSize: hp(3),
+    color: 'black',
+    marginTop: hp(5),
+    marginBottom: hp(2),
+    marginLeft: wp(6),
+  },
+  line: {marginLeft: wp(6)},
 });

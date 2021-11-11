@@ -17,7 +17,7 @@ export default function Intro({navigation}) {
     <View>
       <ImageBackground
         source={require('../../Asset/Image/Bawomataluo.jpg')}
-        style={{height: 750, width: 400}}>
+        style={{height: hp(100), width: wp(100)}}>
         <View style={styles.wrap}>
           <Text style={styles.txtTitle}>JELAJAHI</Text>
           <Text style={styles.txtSub0}>Mari Mengenal Nias</Text>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     height: hp(8),
     backgroundColor: '#DF4F30',
     borderRadius: 40,
-    marginHorizontal: hp(21),
+    alignSelf:'center',
     marginVertical: hp(50),
   },
   btnIcon: {marginHorizontal: 12, marginVertical: hp(1)},

@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     marginLeft: wp(4),
     fontWeight: 'bold',
     color: 'black',
-    marginTop: hp(8),
+    marginTop: hp(9.5),
   },
   txtDiscovery1: {
     fontSize: hp(4),

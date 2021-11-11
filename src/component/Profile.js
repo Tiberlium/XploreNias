@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   img: {
-    height: hp(7),
-    width: wp(14),
+    height: 50,
+    width: 50,
     borderRadius: 25,
     marginTop: hp(2.5),
     marginLeft: wp(2),

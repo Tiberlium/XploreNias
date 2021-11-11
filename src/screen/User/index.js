@@ -71,7 +71,7 @@ export default function User({navigation}) {
 
 const styles = StyleSheet.create({
   wrap: {marginVertical: hp(10)},
-  img: {height: hp(14), width: wp(29), borderRadius: 50, alignSelf: 'center'},
+  img: {height: 100, width: 100, borderRadius: 50, alignSelf: 'center'},
   txt: {
     fontSize: hp(3),
     color: 'black',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     padding: 20,
     width: wp(90),
     alignSelf: 'center',
-    borderRadius: 35,
+    borderRadius: 50,
     backgroundColor: 'white',
     marginVertical: 10,
     elevation: 5,
