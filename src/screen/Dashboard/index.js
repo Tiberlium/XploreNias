@@ -79,21 +79,21 @@ function Category() {
         name="calendar"
         title="Event"
         color="#850202"
-        background="#FFD7B5"
+        background="#FEEAEA"
         onPress={() => navigation.navigate('Other', {col: 'Event'})}
       />
       <CategoryBtn
         name="pizza"
         title="Makanan"
         color="#020285"
-        background="#B5FCFF"
+        background="#EAF0FE"
         onPress={() => navigation.navigate('Other', {col: 'Makanan'})}
       />
       <CategoryBtn
         name="basket"
         title="Suvenir"
         color="#028528"
-        background = "#D2FFB5"
+        background = "#EAFEEA"
         onPress={() => navigation.navigate('Other', {col: 'Souvenir'})}
       />
     </View>

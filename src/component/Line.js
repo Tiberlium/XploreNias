@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     marginVertical: hp(1),
-    width: wp(60),
+    width: wp(90),
   },
 });

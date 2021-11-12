@@ -9,7 +9,7 @@ export default function CategoryBtn({name,title,onPress,color,background}) {
     <View>
       <TouchableOpacity onPress={onPress} >
         <Card style={[styles.btn,{backgroundColor:background}]}>
-          <Icon name={name} size={30} color={color} style={styles.icon}/>
+          <Icon name={name} size={35} color={color} style={styles.icon}/>
         </Card>
         <Text style={styles.txt}>{title}</Text>
       </TouchableOpacity>
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
   shadowRadius: 3.84,
   elevation: 5,
   },
-  icon:{marginTop:hp(2.5),alignSelf:'center'},
+  icon:{marginTop:hp(2),alignSelf:'center'},
   txt:{textAlign:'center',color:'black',marginTop:hp(0.5)}
 });

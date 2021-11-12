@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView,SafeAreaView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import FullCard from '../../Component/FullCard';
 import BackButton from '../../Component/BackButton';
@@ -35,7 +35,7 @@ export default function All({navigation}) {
   }, []);
 
   return (
-    <View>
+    <SafeAreaView>
       <View style={{display:'flex',flexDirection:'row'}}>
         <BackButton onPress={()=>navigation.goBack()} />
         <Text style={styles.txt}>Semua Tempat</Text>
@@ -55,7 +55,7 @@ export default function All({navigation}) {
           );
         })}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -110,8 +110,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   wrap: {padding: 20, position: 'absolute'},
-  txt0: {color: 'white', textAlign: 'justify', fontWeight: 'bold'},
-  txt1: {color: 'white', textAlign: 'justify', fontWeight: '200'},
+  txt0: {color: 'white', textAlign: 'justify', fontWeight: 'bold',paddingLeft:20},
+  txt1: {color: 'white', textAlign: 'justify', fontWeight: '200',paddingLeft:20},
   txt2: {color: 'black', textAlign: 'justify'},
   wrapBtn: {
     display: 'flex',

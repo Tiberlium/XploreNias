@@ -17,7 +17,7 @@ export default function Intro({navigation}) {
     <View>
       <ImageBackground
         source={require('../../Asset/Image/Bawomataluo.jpg')}
-        style={{height: hp(100), width: wp(100)}}>
+        style={{height: hp(110), width: wp(100)}}>
         <View style={styles.wrap}>
           <Text style={styles.txtTitle}>JELAJAHI</Text>
           <Text style={styles.txtSub0}>Mari Mengenal Nias</Text>
