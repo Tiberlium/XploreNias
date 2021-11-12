@@ -1,11 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {firebase} from '@react-native-firebase/auth';
+import Line from '../../Component/Line';
 
 export default function Info() {
-
   const user = firebase.auth().currentUser;
-
 
   return (
     <View>
@@ -22,6 +21,10 @@ export default function Info() {
         }}>
         Info
       </Text>
+      <View style={{alignSelf:'center',marginVertical:10}}>
+        <Line />
+      </View>
+
       <View style={styles.wrap}>
         <Text style={styles.txtProp}>Nama</Text>
         <Text style={styles.txtValue}>{user.displayName}</Text>
