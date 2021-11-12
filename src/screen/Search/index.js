@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView,SafeAreaView} from 'react-native';
 import SearchBars from '../../Component/SearchBars';
 import firestore from '@react-native-firebase/firestore';
 import ResultCard from '../../Component/ResultCard';
@@ -55,7 +55,7 @@ export default function Search({navigation}) {
           .filter(x => x.dat.Nama.toLowerCase().match(Query.toLowerCase()))
           .map(x => {
             return (
-              <View key={x.id}>
+              <SafeAreaView key={x.id}>
                 <ResultCard
                   nama={x.dat.Nama}
                   gambar={x.dat.Gambar}
@@ -64,7 +64,7 @@ export default function Search({navigation}) {
                   kategori={x.dat.Kategori}
                   onPress={() => Nav(x.dat.Kategori, x.id)}
                 />
-              </View>
+              </SafeAreaView>
             );
           })}
       </ScrollView>

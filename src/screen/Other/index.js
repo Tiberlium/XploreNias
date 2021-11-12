@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView,SafeAreaView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import OtherCard from '../../Component/OtherCard';
 
@@ -31,7 +31,7 @@ export default function Other({route, navigation}) {
   }, []);
 
   return (
-    <View>
+    <SafeAreaView>
       <ScrollView>
         {Data.map(x => {
           return (
@@ -46,6 +46,6 @@ export default function Other({route, navigation}) {
           );
         })}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

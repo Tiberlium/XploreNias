@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {Snackbar} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import BookmarkBtn from '../../Component/BookmarkBtn';

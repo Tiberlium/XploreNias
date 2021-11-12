@@ -43,7 +43,7 @@ export default function All({navigation}) {
       <ScrollView>
         {Data.map(x => {
           return (
-            <View key={x.id}>
+            <SafeAreaView key={x.id}>
               <FullCard
                 nama={x.dat.Nama}
                 gambar={x.dat.Gambar}
@@ -51,7 +51,7 @@ export default function All({navigation}) {
                 kabupaten={x.dat.Kabupaten}
                 onPress={() => navigation.push('Detail', {unique: x.id})}
               />
-            </View>
+            </SafeAreaView>
           );
         })}
       </ScrollView>
