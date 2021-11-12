@@ -4,11 +4,11 @@ import {Card} from 'react-native-paper';
 import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function CategoryBtn({name,title,onPress,color}) {
+export default function CategoryBtn({name,title,onPress,color,background}) {
   return (
     <View>
       <TouchableOpacity onPress={onPress} >
-        <Card style={styles.btn}>
+        <Card style={[styles.btn,{backgroundColor:background}]}>
           <Icon name={name} size={30} color={color} style={styles.icon}/>
         </Card>
         <Text style={styles.txt}>{title}</Text>
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   shadowOpacity: 0.25,
   shadowRadius: 3.84,
   elevation: 5,
-  backgroundColor:'white',
   },
   icon:{marginTop:hp(2.5),alignSelf:'center'},
   txt:{textAlign:'center',color:'black',marginTop:hp(0.5)}
