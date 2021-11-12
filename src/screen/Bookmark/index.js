@@ -1,5 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import BookmarkCard from '../../Component/BookmarkCard';
 
@@ -33,7 +40,7 @@ export default function Bookmark({navigation}) {
       Bookmark: false,
     });
     const removeIndex = Data.findIndex(i => i.id === id);
-    Data.splice(removeIndex,1);
+    Data.splice(removeIndex, 1);
     Get();
   };
 
@@ -45,21 +52,23 @@ export default function Bookmark({navigation}) {
 
   const Exist = () => {
     return (
-      <ScrollView>
-        {Data.map(x => {
-          return (
-            <View key={x.id}>
-              <BookmarkCard
-                nama={x.dat.Nama}
-                kategori={x.dat.Kategori}
-                gambar={x.dat.Gambar}
-                onHapus={() => Delete(x.id)}
-                onPress={() => Nav(x.dat.Kategori, x.id)}
-              />
-            </View>
-          );
-        })}
-      </ScrollView>
+      <SafeAreaView>
+        <ScrollView>
+          {Data.map(x => {
+            return (
+              <SafeAreaView key={x.id}>
+                <BookmarkCard
+                  nama={x.dat.Nama}
+                  kategori={x.dat.Kategori}
+                  gambar={x.dat.Gambar}
+                  onHapus={() => Delete(x.id)}
+                  onPress={() => Nav(x.dat.Kategori, x.id)}
+                />
+              </SafeAreaView>
+            );
+          })}
+        </ScrollView>
+      </SafeAreaView>
     );
   };
 
