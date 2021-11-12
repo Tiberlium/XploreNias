@@ -96,9 +96,9 @@ const styles = StyleSheet.create({
   wrapjdl: {
     borderWidth: 0.5,
     backgroundColor: '#333333',
-    width: wp(60),
+    width: wp(70),
     borderRadius: 20,
-    marginLeft: wp(5),
+    marginLeft:wp(5),
     padding: 12,
     marginTop: hp(25),
     elevation: 5,
