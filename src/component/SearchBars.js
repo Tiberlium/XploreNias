@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     color: '#605656',
     marginTop: hp(2),
     elevation: 5,
-    backgroundColor: '#EBD4D4',
+    fontWeight:'400',
+    backgroundColor: '#EFEDED',
   },
 });

@@ -19,6 +19,6 @@ export default function SearchBtn() {
 
 const styles = StyleSheet.create({
   wrap:{padding:10,alignSelf:'center',marginTop:hp(1),},
-  btn:{height:50,width:wp(90),padding:10,borderRadius:25,elevation:5,backgroundColor:'#EBD4D4'},
+  btn:{height:50,width:wp(90),padding:10,borderRadius:25,elevation:5,backgroundColor:'#EFEDED'},
   txt:{marginTop:hp(-3),marginLeft:wp(10),color:'#605656'},
 })
