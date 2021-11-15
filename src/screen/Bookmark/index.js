@@ -7,47 +7,37 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 import BookmarkCard from '../../Component/BookmarkCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useIsFocused} from '@react-navigation/core';
 
 export default function Bookmark({navigation}) {
-  const [Data, setData] = useState([]);
+  const [Data, setData] = useState();
+  const isFocus = useIsFocused();
 
-  const Get = () => {
-    let y = [];
-    firestore()
-      .collection('Wisata')
-      .where('Bookmark', '==', true)
-      .onSnapshot(querySnapshot => {
-        querySnapshot.docs.map(doc => {
-          if (!y.some(data => data.id === doc.id)) {
-            y.push({
-              id: doc.id,
-              dat: doc.data(),
-            });
-          }
-        });
-        setData(y);
-      });
+  const Get = async () => {
+    await AsyncStorage.getItem('Book')
+      .then(value => {
+        value != null ? setData(JSON.parse(value)) : null;
+      })
+      .catch(e => console.log(e));
   };
 
   useEffect(() => {
     Get();
-  }, []);
-
-  const Delete = id => {
-    firestore().collection('Wisata').doc(id).update({
-      Bookmark: false,
-    });
-    const removeIndex = Data.findIndex(i => i.id === id);
-    Data.splice(removeIndex, 1);
-    Get();
-  };
+  }, [isFocus]);
 
   const Nav = (kat, id) => {
     kat === 'Tempat wisata'
       ? navigation.navigate('Detail', {unique: id})
       : navigation.navigate('Otherdetail', {id: id});
+  };
+
+  const Delete = async id => {
+    const arr = Data.filter(e => e.id != id);
+    await AsyncStorage.setItem('Book', JSON.stringify(arr))
+      .then(() => Get())
+      .catch(e => console.log(e));
   };
 
   const Exist = () => {
@@ -58,11 +48,11 @@ export default function Bookmark({navigation}) {
             return (
               <SafeAreaView key={x.id}>
                 <BookmarkCard
-                  nama={x.dat.Nama}
-                  kategori={x.dat.Kategori}
-                  gambar={x.dat.Gambar}
+                  nama={x.data.Nama}
+                  gambar={x.data.Gambar}
+                  kategori={x.data.Kategori}
+                  onPress={() => Nav(x.data.Kategori, x.id)}
                   onHapus={() => Delete(x.id)}
-                  onPress={() => Nav(x.dat.Kategori, x.id)}
                 />
               </SafeAreaView>
             );

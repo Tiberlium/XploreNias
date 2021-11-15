@@ -11,6 +11,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Detail({route}) {
   const Nav = useNavigation();
@@ -33,10 +34,20 @@ export default function Detail({route}) {
     return () => (isMounted.current = false);
   }, []);
 
-  const Addbook = () => {
-    firestore().collection('Wisata').doc(route.params.unique).update({
-      Bookmark: true,
-    });
+  const Addbook = async () => {
+    const value = {
+      id: route.params.unique,
+      data: Data,
+    };
+
+    AsyncStorage.getItem('Book')
+      .then(favs => {
+        favs = favs === null ? [] : JSON.parse(favs);
+        favs.push(value);
+        return AsyncStorage.setItem('Book', JSON.stringify(favs));
+      })
+      .catch(e => console.log(e));
+      
     setVisible(true);
   };
 
@@ -98,7 +109,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333',
     width: wp(70),
     borderRadius: 20,
-    marginLeft:wp(5),
+    marginLeft: wp(5),
     padding: 12,
     marginTop: hp(25),
     elevation: 5,
@@ -110,8 +121,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   wrap: {padding: 20, position: 'absolute'},
-  txt0: {color: 'white', textAlign: 'justify', fontWeight: 'bold',paddingLeft:20},
-  txt1: {color: 'white', textAlign: 'justify', fontWeight: '200',paddingLeft:20},
+  txt0: {
+    color: 'white',
+    textAlign: 'justify',
+    fontWeight: 'bold',
+    paddingLeft: 20,
+  },
+  txt1: {
+    color: 'white',
+    textAlign: 'justify',
+    fontWeight: '200',
+    paddingLeft: 20,
+  },
   txt2: {color: 'black', textAlign: 'justify'},
   wrapBtn: {
     display: 'flex',

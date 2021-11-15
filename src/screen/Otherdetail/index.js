@@ -10,6 +10,7 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Otherdetail({route}) {
   const Nav = useNavigation();
@@ -30,13 +31,20 @@ export default function Otherdetail({route}) {
     Get();
   }, []);
 
-  const addBook = () => {
-    firestore()
-      .collection('Wisata')
-      .doc(route.params.id)
-      .update({
-        Bookmark: true,
+  const addBook = async () => {
+    const value = {
+      id: route.params.id,
+      data: Data,
+    };
+
+    AsyncStorage.getItem('Book')
+      .then(favs => {
+        favs = favs === null ? [] : JSON.parse(favs);
+        favs.push(value);
+        return AsyncStorage.setItem('Book', JSON.stringify(favs));
       })
+      .catch(e => console.log(e));
+
     setVisible(true);
   };
 
@@ -68,7 +76,7 @@ export default function Otherdetail({route}) {
 }
 
 const styles = StyleSheet.create({
-  dis:{flex:1,justifyContent:'space-between'},
+  dis: {flex: 1, justifyContent: 'space-between'},
   img: {
     height: hp(40),
     width: wp(100),
