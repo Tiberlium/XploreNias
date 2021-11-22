@@ -31,7 +31,7 @@ export default function Other({route, navigation}) {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1}}>
       <ScrollView>
         {Data.map(x => {
           return (

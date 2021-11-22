@@ -55,7 +55,7 @@ export default function Search({navigation}) {
           .filter(x => x.dat.Nama.toLowerCase().match(Query.toLowerCase()))
           .map(x => {
             return (
-              <SafeAreaView key={x.id}>
+              <SafeAreaView key={x.id} style={{flex:1}}>
                 <ResultCard
                   nama={x.dat.Nama}
                   gambar={x.dat.Gambar}

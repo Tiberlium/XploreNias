@@ -18,7 +18,7 @@ export default function ResultCard({gambar,nama,kecamatan,kabupaten,kategori,onP
 }
 
 const styles = StyleSheet.create({
-    img:{width:350,height:175,borderRadius:25,marginHorizontal:25,margin:10},
+    img:{width:350,height:175,borderRadius:25,marginHorizontal:25,margin:10,marginVertical:10},
     wrap:{marginLeft:40,marginTop:-100},
     txt:{color:'white'}
 })

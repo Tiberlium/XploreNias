@@ -22,7 +22,7 @@ export default function FullCard({gambar,nama,kecamatan,kabupaten,onPress}) {
 }
 
 const styles = StyleSheet.create({
-  img: {width: wp(90), height: hp(22), borderRadius: 25, marginHorizontal: wp(5),},
+  img: {width: wp(90), height: hp(22), borderRadius: 25, marginHorizontal: wp(5),marginVertical:5},
   wrap:{marginLeft:wp(10),position:'absolute',marginTop:hp(10)},
   txt: {color: 'white'},
 });

@@ -74,7 +74,7 @@ export default function Bookmark({navigation}) {
   };
 
   return (
-    <View>
+    <View style={styles.main}>
       <Text style={styles.txt}>Penanda</Text>
       {Data && Data.length ? <Exist /> : <Empty />}
     </View>
@@ -82,6 +82,7 @@ export default function Bookmark({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  main:{flex:1},
   txt: {fontSize: 30, fontWeight: 'bold', color: 'black', padding: 30},
   empty: {height: 250, width: 250, marginVertical: 100, marginHorizontal: 60},
 });

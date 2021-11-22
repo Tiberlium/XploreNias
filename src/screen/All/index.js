@@ -35,7 +35,7 @@ export default function All({navigation}) {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.main}>
       <View style={{display:'flex',flexDirection:'row'}}>
         <BackButton onPress={()=>navigation.goBack()} />
         <Text style={styles.txt}>Semua Tempat</Text>
@@ -60,5 +60,6 @@ export default function All({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  main:{flex:1},
   txt: {fontWeight: 'bold', fontSize: 30, color: 'black',marginTop:hp(3)},
 });
